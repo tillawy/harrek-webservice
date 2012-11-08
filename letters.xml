@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Entries>
+		  <Entry><Name>’alif </Name><Translit>’ / ā </Translit><Value>various, including /aː/ [a] </Value><ContextualForms><Final>ـا </Final><Medial>ـا </Medial><Initial>ا </Initial><Isolated>ا</Isolated></ContextualForms></Entry>
+		  <Entry><Name>bā’ </Name><Translit>b </Translit><Value>/b/ (sometimes /p/ in loanwords)[b] </Value><ContextualForms><Final>ـب </Final><Medial>ـبـ </Medial><Initial>بـ </Initial><Isolated>ب</Isolated></ContextualForms></Entry>
+		  <Entry><Name>tā’ </Name><Translit>t </Translit><Value>/t/ </Value><ContextualForms><Final>ـت </Final><Medial>ـتـ </Medial><Initial>تـ </Initial><Isolated>ت</Isolated></ContextualForms></Entry>
+		  <Entry><Name>thā’ </Name><Translit>th (also ṯ) </Translit><Value>/θ/ </Value><ContextualForms><Final>ـث </Final><Medial>ـثـ </Medial><Initial>ثـ </Initial><Isolated>ث</Isolated></ContextualForms></Entry>
+		  <Entry><Name>jīm </Name><Translit>j (also ǧ, g) </Translit><Value>[ʒ] ~ [ʒ] ~ [ɡ] [c] </Value><ContextualForms><Final>ـج </Final><Medial>ـجـ </Medial><Initial>جـ </Initial><Isolated>ج</Isolated></ContextualForms></Entry>
+		  <Entry><Name>ḥā’ </Name><Translit>ḥ </Translit><Value>/ħ/ </Value><ContextualForms><Final>ـح </Final><Medial>ـحـ </Medial><Initial>حـ </Initial><Isolated>ح</Isolated></ContextualForms></Entry>
+		  <Entry><Name>khā’ </Name><Translit>kh (also ḫ, ḵ) </Translit><Value>/x/ </Value><ContextualForms><Final>ـخ </Final><Medial>ـخـ </Medial><Initial>خـ </Initial><Isolated>خ</Isolated></ContextualForms></Entry>
+		  <Entry><Name>dāl </Name><Translit>d </Translit><Value>/d/ </Value><ContextualForms><Final>ـد </Final><Medial>ـد </Medial><Initial>د </Initial><Isolated>د</Isolated></ContextualForms></Entry>
+		  <Entry><Name>dhāl </Name><Translit>dh (also ḏ) </Translit><Value>/ð/ </Value><ContextualForms><Final>ـذ </Final><Medial>ـذ </Medial><Initial>ذ </Initial><Isolated>ذ</Isolated></ContextualForms></Entry>
+		  <Entry><Name>rā’ </Name><Translit>r </Translit><Value>/r/ </Value><ContextualForms><Final>ـر </Final><Medial>ـر </Medial><Initial>ر </Initial><Isolated>ر</Isolated></ContextualForms></Entry>
+		  <Entry><Name>zayn / zāy </Name><Translit>z </Translit><Value>/z/ </Value><ContextualForms><Final>ـز </Final><Medial>ـز </Medial><Initial>ز </Initial><Isolated>ز</Isolated></ContextualForms></Entry>
+		  <Entry><Name>sīn </Name><Translit>s </Translit><Value>/s/ </Value><ContextualForms><Final>ـس </Final><Medial>ـسـ </Medial><Initial>سـ </Initial><Isolated>س</Isolated></ContextualForms></Entry>
+		  <Entry><Name>shīn </Name><Translit>sh (also š) </Translit><Value>/ʃ/ </Value><ContextualForms><Final>ـش </Final><Medial>ـشـ </Medial><Initial>شـ </Initial><Isolated>ش</Isolated></ContextualForms></Entry>
+		  <Entry><Name>ṣād </Name><Translit>ṣ </Translit><Value>/sˤ/ </Value><ContextualForms><Final>ـص </Final><Medial>ـصـ </Medial><Initial>صـ </Initial><Isolated>ص</Isolated></ContextualForms></Entry>
+		  <Entry><Name>ḍād </Name><Translit>ḍ </Translit><Value>/dˤ/ </Value><ContextualForms><Final>ـض </Final><Medial>ـضـ </Medial><Initial>ضـ </Initial><Isolated>ض</Isolated></ContextualForms></Entry>
+		  <Entry><Name>ṭā’ </Name><Translit>ṭ </Translit><Value>/tˤ/ </Value><ContextualForms><Final>ـط </Final><Medial>ـطـ </Medial><Initial>طـ </Initial><Isolated>ط</Isolated></ContextualForms></Entry>
+		  <Entry><Name>ẓā’ </Name><Translit>ẓ </Translit><Value>[ðˤ] ~ [zˤ] </Value><ContextualForms><Final>ـظ </Final><Medial>ـظـ </Medial><Initial>ظـ </Initial><Isolated>ظ</Isolated></ContextualForms></Entry>
+		  <Entry><Name>‘ayn </Name><Translit>ʿ </Translit><Value>/ʕ/ </Value><ContextualForms><Final>ـع </Final><Medial>ـعـ </Medial><Initial>عـ </Initial><Isolated>ع</Isolated></ContextualForms></Entry>
+		  <Entry><Name>ghayn </Name><Translit>gh (also ġ, ḡ) </Translit><Value>/ɣ/ (sometimes /ɡ/ in loanwords)[c] </Value><ContextualForms><Final>ـغ </Final><Medial>ـغـ </Medial><Initial>غـ </Initial><Isolated>غ</Isolated></ContextualForms></Entry>
+		  <Entry><Name>fā’ </Name><Translit>f </Translit><Value>/f/ (sometimes /v/ in loanwords)[b] </Value><ContextualForms><Final>ـف </Final><Medial>ـفـ </Medial><Initial>فـ </Initial><Isolated>ف [d]</Isolated></ContextualForms></Entry>
+		  <Entry><Name>qāf </Name><Translit>q </Translit><Value>/q/ (sometimes /ɡ/ in loanwords)[c] </Value><ContextualForms><Final>ـق </Final><Medial>ـقـ </Medial><Initial>قـ </Initial><Isolated>ق [d]</Isolated></ContextualForms></Entry>
+		  <Entry><Name>kāf </Name><Translit>k </Translit><Value>/k/ (sometimes /ɡ/ in loanwords)[c] </Value><ContextualForms><Final>ـك </Final><Medial>ـكـ </Medial><Initial>كـ </Initial><Isolated>ك</Isolated></ContextualForms></Entry>
+		  <Entry><Name>lām </Name><Translit>l </Translit><Value>/l/ </Value><ContextualForms><Final>ـل </Final><Medial>ـلـ </Medial><Initial>لـ </Initial><Isolated>ل</Isolated></ContextualForms></Entry>
+		  <Entry><Name>mīm </Name><Translit>m </Translit><Value>/m/ </Value><ContextualForms><Final>ـم </Final><Medial>ـمـ </Medial><Initial>مـ </Initial><Isolated>م</Isolated></ContextualForms></Entry>
+		  <Entry><Name>nūn </Name><Translit>n </Translit><Value>/n/ </Value><ContextualForms><Final>ـن </Final><Medial>ـنـ </Medial><Initial>نـ </Initial><Isolated>ن</Isolated></ContextualForms></Entry>
+		  <Entry><Name>hā’ </Name><Translit>h </Translit><Value>/h/ </Value><ContextualForms><Final>ـه </Final><Medial>ـهـ </Medial><Initial>هـ </Initial><Isolated>ه</Isolated></ContextualForms></Entry>
+		  <Entry><Name>wāw </Name><Translit>w / ū / aw </Translit><Value>/w/, /uː/, /aw/, sometimes /u/, /o/, and /oː/ in loanwords </Value><ContextualForms><Final>ـو </Final><Medial>ـو </Medial><Initial>و </Initial><Isolated>و</Isolated></ContextualForms></Entry>
+		  <Entry><Name>yā’ </Name><Translit>y / ī / ay </Translit><Value>/j/, /iː/, /aj/, sometimes /i/, /e/, and /eː/ in loanwords </Value><ContextualForms><Final>ـي </Final><Medial>ـيـ </Medial><Initial>يـ </Initial><Isolated>ي [e]</Isolated></ContextualForms></Entry>
+</Entries>

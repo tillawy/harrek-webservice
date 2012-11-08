@@ -1,0 +1,47 @@
+<html>
+		  <head>
+					 <script src="http://127.0.0.1/~mohammed/letters/jquery-1.8.2.min.js"></script>
+		  </head>
+		  <body dir="ltr">
+					 <p class="letter">a</p>
+					 <p class="letter">b</p>
+					 <p class="letter">c</p>
+					 <p class="letter">d</p>
+					 <p class="letter">e</p>
+					 <p class="letter">f</p>
+					 <br/>
+					 
+					 <div class="arabic_letter" direction="rtl" dir="rtl" align="right">
+								<div class="letter">مــــ</div>
+								<div class="letter">حـ</div>
+								<div class="letter">ـــــــــمـــــــــ</div>
+								<div class="letter">د</div>
+								<div class="letter"> </div>
+								<div class="letter">ا</div>
+								<div class="letter">ل</div>
+								<div class="letter">ت</div>
+								<div class="letter">ل</div>
+								<div class="letter">ا</div>
+								<div class="letter">و</div>
+								<div class="letter">ي</div>
+								<div class="letter"></div>
+					 </div>
+		  </body>
+		  <style>
+					 .letter {
+								display: inline;
+								padding: 0px;
+								margin: 0px;
+					 .arabic_letter {
+								display: inline-block;
+								direction: "rtl";
+
+					 }
+		  </style>
+		  <script>
+					 $(".letter").click(function() {
+								console.log("Handler for .click() called." + $(this).text() );
+
+					 });
+		  </script>
+</html>
