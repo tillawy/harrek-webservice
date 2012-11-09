@@ -44,19 +44,21 @@ foreach ($puzzle->sentence as $letter) {
 
 for ($i=0; $i < count($puzzle->sentence) ; $i++){ 
 	$letter = $puzzle->getLetterAtIndex($i);
-	echo "<div class='options_container' correctIndex='" . $letter->positionInFamily() . "'>";
-	if ($letter->randomize){
+	if ( $letter->isRandomizeable ){
+		echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
 		foreach ($letter->getFamily() as $fLetter ) {
 			$correct = $fLetter->matchesLetter($letter) ? 1 : 0;
 			echo "\t<div class='option' isCorrect='" . $correct . "'>" .
 			$fLetter->stringPresentation() 
 			. "</div>\n";
 		}
+		echo "</div>\n";
 		//echo "\t<div class='option empty'>XX</div>\n";
 	} else {
+		echo "<div class='container'>";
 		echo "\t<div class='nooption'>" . $letter->stringPresentation() . "</div>\n";
+		echo "</div>\n";
 	}
-	 echo "</div>\n";	
 }
 
 ?>
@@ -77,7 +79,7 @@ for ($i=0; $i < count($puzzle->sentence) ; $i++){
 	direction: "rtl";
 }
 
-div.options_container {
+div.container {
 	width:30px;
 	height:30px;
 	overflow-y: hidden;
@@ -91,7 +93,8 @@ div.option {
 	height:30px;
 }
 
-div.correctOption {
+div.correct {
+	background-color: green;
 	color: white;
 }
 
@@ -119,17 +122,28 @@ $(".options_container").click(function() {
 		$(this).scrollTop( $(this).scrollTop() + 30 );
 	}
 
-	var singleItemHeight = $(this).prop("scrollHeight") / $(this).children().length ;
+	var singleItemHeight = $(this).prop("scrollHeight") / $(this).children().length;
 	var scrollBottom = $(this).prop("scrollHeight") - $(this).scrollTop();
 	var currentIndex = $(this).scrollTop() / $(this).prop("scrollHeight") * $(this).children().length;
 
 	if ( $(this).attr("correctIndex") == currentIndex ) {
-		$(this).children().addClass("correctOption");
+		$(this).children().addClass("correct");
+		$(this).removeClass("not_correct");
 	} else {
-		$(this).children().removeClass("correctOption");
+		$(this).children().removeClass("correct");
+		$(this).addClass("not_correct");
 	}
+	
+	if ($(".not_correct").length  == 0) {
+		console.log("not_correct: " + $(".not_correct").length  == 0);
+		console.log("YOOO");
+		
+	};
+
 
 });
+
+
 	
 
 </script>

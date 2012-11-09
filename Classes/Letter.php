@@ -22,7 +22,7 @@ class Letter{
 	private $nextShouldBeInitial = FALSE;
  
 	private $position ;
-	private $randomize = FALSE;
+	private $isRandomizeable = FALSE;
 
 	public static $families = array();
 	function __construct(SimpleXMLElement $obj) {
@@ -93,8 +93,8 @@ class Letter{
 		}
 	}
 
-	public function isRandomizeable(){
-		return count($this->getFamily()) > 1;
+	public function isOrphan(){
+		return count($this->getFamily()) == 1;
 	}
 
 	public function positionInFamily(){

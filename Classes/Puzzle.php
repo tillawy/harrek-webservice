@@ -76,13 +76,13 @@ class Puzzle {
 	private $lastRandom = 0;
 	public function getLetterAtIndex($_i){
 		$l = $this->vocabulary->sentence[$_i];
-		if ( ! $l->isRandomizeable() ){
+		if ( $l->isOrphan() ){
 			// nothing here
 		} elseif ( $this->lastRandom < $this->minimumCorrectContinousLetters()) {
 			$this->lastRandom ++;
 		} else {
 			$this->lastRandom = 0;
-			$l->randomize = TRUE;
+			$l->isRandomizeable = TRUE;
 		}
 		return $l;
 	}
