@@ -22,7 +22,7 @@ class Letter{
 	private $nextShouldBeInitial = FALSE;
  
 	private $position ;
-
+	private $randomize = FALSE;
 
 	public static $families = array();
 	function __construct(SimpleXMLElement $obj) {
@@ -52,6 +52,10 @@ class Letter{
 	}
 	public function matches( $_t = ""){
 		return strcmp($this->isolated, $_t) == 0;
+	}
+
+	public function matchesLetter(Letter $_letter){
+		return strcmp($this->isolated, $_letter->isolated) == 0;
 	}
 
 	public function isSpace(){
@@ -87,6 +91,10 @@ class Letter{
 				break;	
 			}
 		}
+	}
+
+	public function isRandomizeable(){
+		return count($this->getFamily()) > 1;
 	}
 
 	public function getFamily(){
