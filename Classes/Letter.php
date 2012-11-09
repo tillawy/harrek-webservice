@@ -97,6 +97,14 @@ class Letter{
 		return count($this->getFamily()) > 1;
 	}
 
+	public function positionInFamily(){
+		foreach ($this->getFamily() as $_key => $_letter) {
+			if ($this == $_letter) {
+				return $_key;
+			}
+		}
+	}
+
 	public function getFamily(){
 		return Letter::$families["f:" . $this->familyId];
 	}

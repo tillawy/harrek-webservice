@@ -16,7 +16,7 @@ class PuzzleDifficulty {
 class Puzzle {
 	
 	private $string = "";
-	private $difficulty = PuzzleDifficulty::FLASH;
+	private $difficulty = PuzzleDifficulty::ADVANCED;
 	private $vocabulary;
 
 
@@ -86,7 +86,7 @@ class Puzzle {
 		}
 		return $l;
 	}
-
+	
 }
 
 ?>

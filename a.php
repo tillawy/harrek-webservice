@@ -16,7 +16,7 @@ header('Content-Type: text/html; charset=utf-8');
  
 <?
 $puzzle = Puzzle::PuzzleWithFile('./b.txt');
-$puzzle->difficulty = 2;
+$puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 ?>
 
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
@@ -44,14 +44,15 @@ foreach ($puzzle->sentence as $letter) {
 
 for ($i=0; $i < count($puzzle->sentence) ; $i++){ 
 	$letter = $puzzle->getLetterAtIndex($i);
-	echo "<div class='options_container'>";
+	echo "<div class='options_container' correctIndex='" . $letter->positionInFamily() . "'>";
 	if ($letter->randomize){
 		foreach ($letter->getFamily() as $fLetter ) {
 			$correct = $fLetter->matchesLetter($letter) ? 1 : 0;
-			echo "\t<div class='option' correct='" . $correct . "'>" .
+			echo "\t<div class='option' isCorrect='" . $correct . "'>" .
 			$fLetter->stringPresentation() 
 			. "</div>\n";
-		} 
+		}
+		//echo "\t<div class='option empty'>XX</div>\n";
 	} else {
 		echo "\t<div class='nooption'>" . $letter->stringPresentation() . "</div>\n";
 	}
@@ -90,6 +91,10 @@ div.option {
 	height:30px;
 }
 
+div.correctOption {
+	color: white;
+}
+
 </style>
 <script>
 $(".letter").click(function() {
@@ -97,16 +102,33 @@ $(".letter").click(function() {
 
 });
 
-	$(".options_container").scrollTop(0);
+$(".options_container").scrollTop(0);
+
+
+$(".option").click(function() {
+	//console.log("option" +$(this).attr("isCorrect") );
+	//$(this).addClass("answered");
+});
 
 
 $(".options_container").click(function() {
-	console.log("Handler for .click() called." + $(this).scrollTop() +  " " + $(this).prop("scrollHeight") );
+	
 	if ($(this).scrollTop() + $(this).height() == $(this).prop("scrollHeight")) {
 		$(this).scrollTop( 0 );
 	} else {
 		$(this).scrollTop( $(this).scrollTop() + 30 );
 	}
+
+	var singleItemHeight = $(this).prop("scrollHeight") / $(this).children().length ;
+	var scrollBottom = $(this).prop("scrollHeight") - $(this).scrollTop();
+	var currentIndex = $(this).scrollTop() / $(this).prop("scrollHeight") * $(this).children().length;
+
+	if ( $(this).attr("correctIndex") == currentIndex ) {
+		$(this).children().addClass("correctOption");
+	} else {
+		$(this).children().removeClass("correctOption");
+	}
+
 });
 	
 
