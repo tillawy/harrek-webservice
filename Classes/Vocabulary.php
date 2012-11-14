@@ -65,13 +65,15 @@ class Vocabulary{
 	   			}
 	   		}
 	   	}
-	   $this->resetLettersPositions();
+			$this->resetLettersPositions();
+   }
+	function inspectWords(){
 			print ( count( $this->words ) ); 
 			foreach ( $this->words as $_word ){
 					 print "<br>";
 					 print ( count($_word->letters) . " " . $_word->getPrint()  .  " " . $_word->order ); 
 			}
-   }
+	}
 
    function resetLettersPositions(){
    	for ($i=0; $i < sizeof($this->sentence); $i++) { 

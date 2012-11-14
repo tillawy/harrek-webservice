@@ -1,5 +1,3 @@
-
-
 <html>
  	<head>
  	<script src="http://127.0.0.1/~mohammed/letters/jquery-1.8.2.min.js"></script>
@@ -11,13 +9,14 @@ require_once('./Classes/Vocabulary.php');
 require_once('./Classes/Letter.php'); 
 require_once('./Classes/Puzzle.php');
 require_once('./Classes/Word.php');
+
 header('Content-Type: text/html; charset=utf-8');
 
 ?>
  
 <?
 $puzzle = Puzzle::PuzzleWithFile('./b.txt');
-$puzzle->difficulty = PuzzleDifficulty::FLASH;
+$puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 ?>
 
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
@@ -47,17 +46,17 @@ for ($i=0; $i < count($puzzle->sentence) ; $i++){
 	$letter = $puzzle->getLetterAtIndex($i);
 	if ( $letter->isRandomizeable ){
 		echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
-		foreach ($letter->getFamily() as $fLetter ) {
-			$correct = $fLetter->matchesLetter($letter) ? 1 : 0;
+		foreach ($letter->getFamily() as $_fLetter ) {
+         $_fLetter->position = $letter->position;
+			$correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
 			echo "<div class='option' isCorrect='" . $correct . "'>" .
-			$fLetter->stringPresentation() 
+			$_fLetter->stringPresentation() 
 			. "</div>";
 		}
 		echo "</div>\n";
-		//echo "\t<div class='option empty'>XX</div>\n";
 	} else {
 		echo "<div class='container'>";
-		echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
+      echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
 		echo "</div>";
 	}
 }
