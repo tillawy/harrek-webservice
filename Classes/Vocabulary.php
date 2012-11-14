@@ -66,6 +66,7 @@ class Vocabulary{
 	   		}
 	   	}
 			$this->resetLettersPositions();
+			$this->inspectWords();
    }
 	function inspectWords(){
 			print ( count( $this->words ) ); 

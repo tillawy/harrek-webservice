@@ -19,27 +19,40 @@ $puzzle = Puzzle::PuzzleWithFile('./b.txt');
 $puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 ?>
 
+
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
-<?/*
-foreach ($puzzle->sentence as $letter) {
-	echo '<div class="letter">'
-	//. $letter->stringPresentation() 
-	. '</div>';
-	echo "<div class='options_container'>";
-	foreach ($letter->getFamily() as $fLetter ) {
-		echo "<div class='option'>" .
-	 		 $fLetter->stringPresentation() 
-		. "</div>";
-	} 
-	 echo "</div>";
+<?
+
+$idx = 0;
+//echo (count($puzzle->sentence));
+foreach ( $puzzle->words as $_wi => $_word ){
+        //echo $_word->getPrint() . "<br/>";
+        foreach ( $_word->letters as $_li => $_letter){
+                $letter = $puzzle->getLetterAtIndex($idx++);
+                //echo $idx . "<br/>";
+                if ( $letter->isRandomizeable ){
+                        echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
+                        foreach ($letter->getFamily() as $_fLetter ) {
+                                $_fLetter->position = $letter->position;
+                                $correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
+                                echo "<div class='option' isCorrect='" . $correct . "'>" .
+                                        $_fLetter->stringPresentation() 
+                                        . "</div>";
+                        }
+                        echo "</div>\n";
+                } else {
+                        echo "<div class='container'>";
+                        echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
+                        echo "</div>\n";
+                }
+        }
+        $idx++; // for space
 }
-*/
 ?>
 </div>
 
-
-
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
+
 <?
 
 for ($i=0; $i < count($puzzle->sentence) ; $i++){ 
@@ -51,19 +64,19 @@ for ($i=0; $i < count($puzzle->sentence) ; $i++){
 			$correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
 			echo "<div class='option' isCorrect='" . $correct . "'>" .
 			$_fLetter->stringPresentation() 
-			. "</div>";
+			. "</div>\n";
 		}
 		echo "</div>\n";
 	} else {
 		echo "<div class='container'>";
       echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
-		echo "</div>";
+		echo "</div>\n";
 	}
 }
 
 ?>
-</div>
 
+</div>
 
 														
 
