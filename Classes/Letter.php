@@ -111,7 +111,9 @@ class Letter{
 
 	public function getRandomFamilyMember(){
 		if ( isset($this->familyId) ) {
-			return $this->getFamily()[ array_rand($this->getFamily()) ];
+			$aLetter = $this->getFamily()[ array_rand($this->getFamily()) ];
+			$aLetter->position = $this->position;
+			return $aLetter;;
 		}
 		return $this;	
 	}

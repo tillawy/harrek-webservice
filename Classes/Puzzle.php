@@ -29,7 +29,7 @@ class Puzzle {
 	public function __construct($_str = "") {
 		$this->string = $_str;
 		$this->vocabulary = new Vocabulary();
-		$this->vocabulary->parse($_str);
+		$this->vocabulary->parseLetters($_str);
 	}
 
 	public function __get($property) {

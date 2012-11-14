@@ -10,13 +10,14 @@
 require_once('./Classes/Vocabulary.php'); 
 require_once('./Classes/Letter.php'); 
 require_once('./Classes/Puzzle.php');
+require_once('./Classes/Word.php');
 header('Content-Type: text/html; charset=utf-8');
 
 ?>
  
 <?
 $puzzle = Puzzle::PuzzleWithFile('./b.txt');
-$puzzle->difficulty = PuzzleDifficulty::ADVANCED;
+$puzzle->difficulty = PuzzleDifficulty::FLASH;
 ?>
 
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
@@ -48,16 +49,16 @@ for ($i=0; $i < count($puzzle->sentence) ; $i++){
 		echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
 		foreach ($letter->getFamily() as $fLetter ) {
 			$correct = $fLetter->matchesLetter($letter) ? 1 : 0;
-			echo "\t<div class='option' isCorrect='" . $correct . "'>" .
+			echo "<div class='option' isCorrect='" . $correct . "'>" .
 			$fLetter->stringPresentation() 
-			. "</div>\n";
+			. "</div>";
 		}
 		echo "</div>\n";
 		//echo "\t<div class='option empty'>XX</div>\n";
 	} else {
 		echo "<div class='container'>";
-		echo "\t<div class='nooption'>" . $letter->stringPresentation() . "</div>\n";
-		echo "</div>\n";
+		echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
+		echo "</div>";
 	}
 }
 
@@ -98,6 +99,12 @@ div.correct {
 	color: white;
 }
 
+div.finished {
+	background-color: blue;
+	border-color: black;
+	border-width: 4px;
+}
+
 </style>
 <script>
 $(".letter").click(function() {
@@ -133,12 +140,15 @@ $(".options_container").click(function() {
 		$(this).children().removeClass("correct");
 		$(this).addClass("not_correct");
 	}
-	
+
+
 	if ($(".not_correct").length  == 0) {
 		console.log("not_correct: " + $(".not_correct").length  == 0);
-		console.log("YOOO");
-		
-	};
+		console.log("FINISHED");
+		$(".option").addClass("finished");
+	} else {
+		$(".option").removeClass("finished");
+	}
 
 
 });
