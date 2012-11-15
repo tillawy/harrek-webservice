@@ -27,6 +27,7 @@ $idx = 0;
 //echo (count($puzzle->sentence));
 foreach ( $puzzle->words as $_wi => $_word ){
         //echo $_word->getPrint() . "<br/>";
+		  echo '<div class="word">';
         foreach ( $_word->letters as $_li => $_letter){
                 $letter = $puzzle->getLetterAtIndex($idx++);
                 //echo $idx . "<br/>";
@@ -46,6 +47,7 @@ foreach ( $puzzle->words as $_wi => $_word ){
                         echo "</div>\n";
                 }
         }
+		  echo '</div>'; //word;
         $idx++; // for space
 }
 ?>
@@ -92,6 +94,11 @@ for ($i=0; $i < count($puzzle->sentence) ; $i++){
 	direction: "rtl";
 }
 
+div.word {
+	display: inline-block;
+	border:1px solid black;
+margin-left: 2px;
+}
 div.container {
 	width:30px;
 	height:30px;

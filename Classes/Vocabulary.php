@@ -66,14 +66,16 @@ class Vocabulary{
 	   		}
 	   	}
 			$this->resetLettersPositions();
-			$this->inspectWords();
+			//$this->inspectWords();
    }
 	function inspectWords(){
-			print ( count( $this->words ) ); 
+			$str = ""; 
+			$str .= ( count( $this->words ) ); 
 			foreach ( $this->words as $_word ){
-					 print "<br>";
-					 print ( count($_word->letters) . " " . $_word->getPrint()  .  " " . $_word->order ); 
+					 $str .= "<br>";
+					$str .= ( count($_word->letters) . " " . $_word->getPrint()  .  " " . $_word->order ); 
 			}
+			return $str;
 	}
 
    function resetLettersPositions(){
