@@ -1,7 +1,7 @@
 <?php
 
 
-class Word {
+class Word extends JSONObject{
 		  private $order;
 		  private $letters = [];
 
@@ -30,6 +30,16 @@ class Word {
 							array_push ( $str,$_l->isolated );
 					 }
 					 return implode($str);
+		  }
+		  public function jsonData(){
+					 $jsonLetters = array();
+					 $callback = function ( $_letter ) use ( &$jsonLetters ) {
+								array_push ( $jsonLetters, $_letter->jsonData() );
+					 };
+        
+					 array_walk($this->letters, $callback);
+					 $out = array ( "w" => $jsonLetters );
+					 return $out;
 		  }
 
 

@@ -28,6 +28,7 @@
 		</ContextualForms>
 		<RootId>31</RootId>
 		<FamilyId>1</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>2</Id>
@@ -42,6 +43,7 @@
 		</ContextualForms>
 		<RootId>31</RootId>
 		<FamilyId>1</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>3</Id>
@@ -56,6 +58,7 @@
 		</ContextualForms>
 		<RootId>31</RootId>
 		<FamilyId>1</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>4</Id>
@@ -70,6 +73,7 @@
 		</ContextualForms>
 		<RootId>5</RootId>
 		<FamilyId>2</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>5</Id>
@@ -84,6 +88,7 @@
 		</ContextualForms>
 		<RootId>5</RootId>
 		<FamilyId>2</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>6</Id>
@@ -98,6 +103,7 @@
 		</ContextualForms>
 		<RootId>5</RootId>
 		<FamilyId>2</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>7</Id>
@@ -112,7 +118,7 @@
 		</ContextualForms>
 		<RootId>7</RootId>
 		<FamilyId>3</FamilyId>
-		<NextShouldBeInitial>1</NextShouldBeInitial>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>8</Id>
@@ -172,6 +178,7 @@
 		</ContextualForms>
 		<RootId>11</RootId>
 		<FamilyId>5</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>12</Id>
@@ -186,6 +193,7 @@
 		</ContextualForms>
 		<RootId>12</RootId>
 		<FamilyId>5</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>13</Id>
@@ -200,6 +208,7 @@
 		</ContextualForms>
 		<RootId>13</RootId>
 		<FamilyId>6</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>14</Id>

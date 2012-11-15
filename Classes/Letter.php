@@ -8,7 +8,8 @@ class LetterPosition {
 	const LAST = 3;
 }
 
-class Letter{
+#import 
+class Letter extends JSONObject{
 	private $Id;
 	private $isolated;
 	private $medial;
@@ -17,7 +18,6 @@ class Letter{
 	private $familyId;
 	private $rootId;
 	private $root;
-	private $id;
 	private $name;
 	private $nextShouldBeInitial = FALSE;
  
@@ -25,17 +25,18 @@ class Letter{
 	private $isRandomizeable = FALSE;
 
 	public static $families = array();
+
 	function __construct(SimpleXMLElement $obj) {
 		$this->isolated =  $obj->ContextualForms->Isolated;
 		$this->last =  $obj->ContextualForms->Last;
 		$this->medial =  $obj->ContextualForms->Medial;
 		$this->initial =  $obj->ContextualForms->Initial;
 
-		if ($obj->NextShouldBeInitial) {
+		if ($obj->NextShouldBeInitial && $obj->NextShouldBeInitial  == 1) {
 			$this->nextShouldBeInitial = TRUE;
 		}
 
-		$this->id = $obj->Id;
+		$this->Id = $this->getTextContent($obj->Id);
 		$this->rootId = $obj->RootId;
 		$this->name = $obj->Name;
 
@@ -50,6 +51,11 @@ class Letter{
 		}
 	
 	}
+
+	private function getTextContent(SimpleXMLElement $_sxml){
+			  return dom_import_simplexml($_sxml)->textContent;
+	}
+
 	public function matches( $_t = ""){
 		return strcmp($this->isolated, $_t) == 0;
 	}
@@ -62,18 +68,6 @@ class Letter{
 		return $this->matches(" ");
 	}
 
-	public function __get($property) {
-		if (property_exists($this, $property)) {
-			return $this->$property;
-		}
-	}
-
-	public function __set($property, $value) {
-		if (property_exists($this, $property)) {
-			$this->$property = $value;
-		}
-		return $this;
-	}
 
 	public function stringPresentation(){
 		switch ($this->position) {
@@ -117,6 +111,11 @@ class Letter{
 		}
 		return $this;	
 	}
+
+	public function jsonData(){
+			  return array( "l" => $this->Id );
+	}
+
 
 }
 

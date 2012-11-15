@@ -5,6 +5,7 @@
  	<body>
 
 <?
+require_once('./Classes/JSONObject.php'); 
 require_once('./Classes/Vocabulary.php'); 
 require_once('./Classes/Letter.php'); 
 require_once('./Classes/Puzzle.php');
@@ -27,7 +28,8 @@ $idx = 0;
 //echo (count($puzzle->sentence));
 foreach ( $puzzle->words as $_wi => $_word ){
         //echo $_word->getPrint() . "<br/>";
-		  echo '<div class="word">';
+		  echo '<div class="word" order="$_word" >';
+		  //echo $_word->order;
         foreach ( $_word->letters as $_li => $_letter){
                 $letter = $puzzle->getLetterAtIndex($idx++);
                 //echo $idx . "<br/>";
