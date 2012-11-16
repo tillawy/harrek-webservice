@@ -116,6 +116,23 @@ class Letter extends JSONObject{
 			  return array( "l" => $this->Id );
 	}
 
+	public function __set($property, $value) {
+		if (property_exists($this, $property)) {
+			$this->$property = $value;
+		}  else {
+		   die ("property:" . $property . " does not exist");
+		}
+		return $this;
+	}
+
+
+	public function __get($property) {
+		if (property_exists($this, $property)) {
+			return $this->$property;
+		}  else {
+		   die ("property:" . $property . " does not exist");
+		}
+	}
 
 }
 

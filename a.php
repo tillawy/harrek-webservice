@@ -28,11 +28,11 @@ $idx = 0;
 //echo (count($puzzle->sentence));
 foreach ( $puzzle->words as $_wi => $_word ){
         //echo $_word->getPrint() . "<br/>";
-		  echo '<div class="word" order="$_word" >';
+		  echo "<div class='word' order='" . $_wi . "' >";
 		  //echo $_word->order;
-        foreach ( $_word->letters as $_li => $_letter){
+        foreach ( $_word->letters as $_li => $_let){
                 $letter = $puzzle->getLetterAtIndex($idx++);
-                //echo $idx . "<br/>";
+                //echo "\n isRandomizeable: " . $_let->isRandomizeable . "<br/>\n";
                 if ( $letter->isRandomizeable ){
                         echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
                         foreach ($letter->getFamily() as $_fLetter ) {
@@ -59,6 +59,7 @@ foreach ( $puzzle->words as $_wi => $_word ){
 
 <?
 
+/*
 for ($i=0; $i < count($puzzle->sentence) ; $i++){ 
 	$letter = $puzzle->getLetterAtIndex($i);
 	if ( $letter->isRandomizeable ){
@@ -77,6 +78,7 @@ for ($i=0; $i < count($puzzle->sentence) ; $i++){
 		echo "</div>\n";
 	}
 }
+*/
 
 ?>
 
