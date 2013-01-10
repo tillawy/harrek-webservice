@@ -29,7 +29,9 @@ class Vocabulary{
 			);*/
 		}
    }
+   
 
+/*
    public function parseWords($_str = ""){
 			  $i = 0;
 			  foreach ($this->sentence as $_letter){
@@ -39,6 +41,7 @@ class Vocabulary{
 						 }
 			  }
 	}
+*/
 
    public function parseLetters($_str = ""){
 	   	$this->sentence = [];

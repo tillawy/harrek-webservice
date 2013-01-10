@@ -16,7 +16,7 @@ $words = array();
 foreach ( $puzzle->words as $_wi => $_word ){
 		  array_push( $words, $_word->jsonData() );
 }
-echo json_encode ( $words );
+echo json_encode ( array("words" =>  $words ) );
 
 
 ?>
