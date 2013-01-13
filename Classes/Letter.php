@@ -36,8 +36,12 @@ class Letter extends JSONObject{
 			$this->nextShouldBeInitial = TRUE;
 		}
 
-		$this->Id = $this->getTextContent($obj->Id);
-		$this->rootId = $this->getTextContent($obj->RootId );
+		if ($obj->Id) {
+				  $this->Id = $this->getTextContent($obj->Id);
+		}
+		if ($obj->rootId) {
+				  $this->rootId = $this->getTextContent($obj->RootId );
+		}
 		$this->name = $obj->Name;
 
 		if ($obj->FamilyId) {

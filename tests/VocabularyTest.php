@@ -43,8 +43,12 @@ class VocabularyTest extends PHPUnit_Framework_TestCase
 	    }
 
 		 public function testVocabularyXmlParsing() {
-			$vocabulary = new Vocabulary();
-			$this->assertTrue( $vocabulary->parseXmlString( $this->xml ) , "parse xml success" );
-			$this->assertTrue(sizeof($vocabulary->languageLetters) > 1 , "no letters in xml" );
+					$vocabulary = new Vocabulary();
+					$this->assertTrue( $vocabulary->parseXmlString( $this->xml ) , "parse xml success" );
+					$this->assertEquals( sizeof($vocabulary->languageLetters) , 2 , "no letters in xml" );
 		 }
 }
+
+
+
+
