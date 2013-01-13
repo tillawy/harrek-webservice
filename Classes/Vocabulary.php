@@ -15,19 +15,31 @@ class Vocabulary{
 		}
 	}
 
-	public function __construct() {
-		$xml = new SimpleXMLElement( $str = file_get_contents('letters3.xml' , true));
+	public function __construct($_xmlFile = null) {
+      if ($_xmlFile) {
+         $this->parseXmlFile($_xmlFile);
+      }
+   }
+
+
+   public function parseXmlFile($_xmlFile = null){
+			  return $this->parseXmlString( file_get_contents($_xmlFile , true) );
+	}
+
+
+   public function parseXmlString($_xmlString = ""){
+			  assert ( strlen($_xmlString) > 0 );
+			  $xml = new SimpleXMLElement( $_xmlString );
+			  return $this->parseXmlElement( $xml );
+	}
+
+   public function parseXmlElement(SimpleXMLElement $_xmlElement){
 		$this->languageLetters = [];
-		foreach ($xml->children() as $sxe) {
+		foreach ($_xmlElement->children() as $sxe) {
 			$l = new Letter ($sxe);
 			array_push($this->languageLetters, $l);
-			/*print( $s->ContextualForms->Isolated
-				. "\t" .  $s->ContextualForms->Final 
-				. "\t" . $s->ContextualForms->Medial 
-				. "\t" . $s->ContextualForms->Initial
-				. "\n"
-			);*/
 		}
+		return true;
    }
    
 

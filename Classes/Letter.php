@@ -37,11 +37,11 @@ class Letter extends JSONObject{
 		}
 
 		$this->Id = $this->getTextContent($obj->Id);
-		$this->rootId = $obj->RootId;
+		$this->rootId = $this->getTextContent($obj->RootId );
 		$this->name = $obj->Name;
 
 		if ($obj->FamilyId) {
-			$this->familyId = $obj->FamilyId;
+			$this->familyId = $this->getTextContent( $obj->FamilyId );
 
 			if ( ! array_key_exists("f:" . $this->familyId , Letter::$families) ){
 				Letter::$families["f:" . $this->familyId] = array();

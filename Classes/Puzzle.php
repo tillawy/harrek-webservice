@@ -13,6 +13,7 @@ class PuzzleDifficulty {
 	const ADVANCED = 5;
 }
 
+
 class Puzzle {
 	
 	private $string = "";
@@ -28,7 +29,7 @@ class Puzzle {
 
 	public function __construct($_str = "") {
 		$this->string = $_str;
-		$this->vocabulary = new Vocabulary();
+		$this->vocabulary = new Vocabulary("letters3.xml");
 		$this->vocabulary->parseLetters($_str);
 	}
 
