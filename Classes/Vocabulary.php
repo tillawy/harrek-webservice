@@ -7,8 +7,7 @@ require_once(__ROOT__.'/Classes/Letter.php');
 class Vocabulary{
 
 	private $letters;
-	private $words;
-	private $sentence;
+
 	public function __get($property) {
 		if (property_exists($this, $property)) {
 			return $this->$property;
@@ -55,7 +54,7 @@ class Vocabulary{
 	}
 */
 
-   public function parseLetters($_str = ""){
+   /*public function parseLetters($_str = ""){
 	   	$this->sentence = [];
 			$this->words = [];
 	   	$strLetters = $this->mb_str_split($_str);
@@ -82,53 +81,11 @@ class Vocabulary{
 	   	}
 			$this->resetLettersPositions();
 			//$this->inspectWords();
-   }
-	function inspectWords(){
-			$str = ""; 
-			$str .= ( count( $this->words ) ); 
-			foreach ( $this->words as $_word ){
-					 $str .= "<br>";
-					$str .= ( count($_word->letters) . " " . $_word->getPrint()  .  " " . $_word->order ); 
-			}
-			return $str;
-	}
-
-   function resetLettersPositions(){
-   	for ($i=0; $i < sizeof($this->sentence); $i++) { 
-   		$this->resetLetterPositionAtIndex($i);
-   	}
-   }
-
-   private function resetLetterPositionAtIndex($_i = 0){
-   	//print ($_i . " " . $this->sentence[$_i]->initial . " " . count ($this->languageLetters));
-   	$letter = $this->sentence[$_i];
-
-   	if ( $_i ==  0 ) {
-   		$letter->position = LetterPosition::INITIAL;
-   		return;
-   	}
-   	if ( $_i > 0 ) {
-   		if ( $this->sentence[$_i-1]->nextShouldBeInitial ) {
-   			$letter->position = LetterPosition::INITIAL;
-   			return;
-   		}
-   	}
-   	if ($_i == sizeof($this->sentence) - 1 ) {
-   		$letter->position = LetterPosition::LAST;
-   		return;
-   	}
-   	if ( $this->sentence[$_i+1]->isSpace()) {
-   		$letter->position = LetterPosition::LAST;
-   		return;
-   	}
-   	$letter->position = LetterPosition::MEDIAL;
-   	return;
-   }
-
-  
+	}*/
 
 
-   function mb_str_split( $_string = "" ) {
+
+   static function mb_str_split( $_string = "" ) {
     # Split at all position not after the start: ^
     # and not before the end: $
    		return preg_split('/(?<!^)(?!$)/u', $_string );
