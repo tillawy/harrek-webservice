@@ -42,48 +42,6 @@ class Vocabulary{
    }
    
 
-/*
-   public function parseWords($_str = ""){
-			  $i = 0;
-			  foreach ($this->sentence as $_letter){
-						 if ($_letter->isSpace()){
-									$i++;
-
-						 }
-			  }
-	}
-*/
-
-   /*public function parseLetters($_str = ""){
-	   	$this->sentence = [];
-			$this->words = [];
-	   	$strLetters = $this->mb_str_split($_str);
-			$aWord = new Word();
-	   	foreach ($strLetters as $k => $val) {
-	   		foreach ($this->languageLetters as $_index => $letter) {
-	   			if ($letter->matches($val)) {
-						if ($letter->isSpace() ){
-								  $aWord->order = count( $this->words );
-								  array_push ($this->words, $aWord);
-								  $aWord = new Word();
-						} else {
-								  //array_push($aWord->letters, $letter);
-								  $aWord->addLetter($letter);
-						}
-						if ($k == count( $strLetters ) - 1 ){
-								  $aWord->order = count( $this->words );
-								  array_push ($this->words, $aWord);
-						}
-	   				array_push($this->sentence, $letter );
-	   				break;
-	   			}
-	   		}
-	   	}
-			$this->resetLettersPositions();
-			//$this->inspectWords();
-	}*/
-
-
 
    static function mb_str_split( $_string = "" ) {
     # Split at all position not after the start: ^

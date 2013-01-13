@@ -18,6 +18,11 @@ class PuzzleParsingTest extends PHPUnit_Framework_TestCase
 		  public function testPuzzleCreation(){
 					 $this->assertNotNull ( $this->puzzle );
 		  }
+
+		  public function testPuzzleNumberOfLetters(){
+					 $this->assertEquals( count($this->puzzle->sentence) , 37  );
+		  }
+
 		  public function testPuzzleNumberOfWords(){
 					 $this->assertEquals( count($this->puzzle->words) , 10 );
 		  }

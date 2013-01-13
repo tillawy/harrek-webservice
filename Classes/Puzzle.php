@@ -19,8 +19,8 @@ class Puzzle {
 	//private $string = "";
 	private $difficulty = PuzzleDifficulty::ADVANCED;
 	private $vocabulary;
-	private $sentence;
-	private $words;
+	private $sentence;	// an array of all letters
+	private $words; 		// an array of all words
 
 
 	static function PuzzleWithFile($_file){
