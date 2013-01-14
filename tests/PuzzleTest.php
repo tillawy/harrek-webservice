@@ -4,7 +4,7 @@ require_once( "require.php" ) ;
 
 require_once "PHPUnit/Autoload.php";
 
-class PuzzleParsingTest extends PHPUnit_Framework_TestCase
+class PuzzleTest extends PHPUnit_Framework_TestCase
 {
 
 		  private $str;
@@ -24,7 +24,10 @@ class PuzzleParsingTest extends PHPUnit_Framework_TestCase
 		  }
 
 		  public function testPuzzleNumberOfWords(){
-					 $this->assertEquals( count($this->puzzle->words) , 10 );
+					 $this->assertEquals( count($this->puzzle->words) , 10  );
 		  }
+
 }
+
+
 ?>

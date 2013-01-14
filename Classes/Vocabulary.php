@@ -11,6 +11,8 @@ class Vocabulary{
 	public function __get($property) {
 		if (property_exists($this, $property)) {
 			return $this->$property;
+		}  else {
+		   die ("property:" . $property . " does not exist");
 		}
 	}
 

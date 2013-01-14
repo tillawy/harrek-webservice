@@ -39,7 +39,7 @@ class Letter extends JSONObject{
 		if ($obj->Id) {
 				  $this->Id = $this->getTextContent($obj->Id);
 		}
-		if ($obj->rootId) {
+		if ($obj->RootId) {
 				  $this->rootId = $this->getTextContent($obj->RootId );
 		}
 		$this->name = $obj->Name;
@@ -118,6 +118,10 @@ class Letter extends JSONObject{
 
 	public function jsonData(){
 			  return array( "l" => $this->Id );
+	}
+
+	public function family(){
+			return  Letter::$families["f:" . $this->familyId];
 	}
 
 	public function __set($property, $value) {

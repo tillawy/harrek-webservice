@@ -71,16 +71,16 @@ class Puzzle {
 	public function __get($property) {
 		if (property_exists($this, $property)) {
 			return $this->$property;
+		}  else {
+		   die ("property:" . $property . " does not exist");
 		}
-
-		/*if (property_exists($this->vocabulary, $property)) {
-			return $this->vocabulary->$property;
-		}*/
 	}
 
 	public function __set($property, $value) {
 		if (property_exists($this, $property)) {
 			$this->$property = $value;
+		}  else {
+		   die ("property:" . $property . " does not exist");
 		}
 		return $this;
 	}

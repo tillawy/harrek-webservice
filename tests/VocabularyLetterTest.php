@@ -75,6 +75,15 @@ class VocabularyLetterTest extends PHPUnit_Framework_TestCase
 			$this->assertNotNull( $letter->familyId );
 			$this->assertEquals( $letter->familyId  , 1);
 
+			$this->assertNotNull(  Letter::$families  );
+			$this->assertArrayHasKey(  "f:" . $letter->familyId  ,   Letter::$families );
+			$this->assertNotNull ( Letter::$families["f:" . $letter->familyId] );
+
+			$this->assertTrue ( in_array( $letter , Letter::$families["f:" . $letter->familyId]  , true));
+
+			$this->assertEquals ( $letter->family() , Letter::$families["f:" . $letter->familyId]  ) ;
+
+
 			/*print( $s->ContextualForms->Isolated . "\t" .  $s->ContextualForms->Final . "\t" . $s->ContextualForms->Medial . "\t" . $s->ContextualForms->Initial . "\n");*/
 
 		 }
