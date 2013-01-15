@@ -38,7 +38,8 @@ class Word extends JSONObject{
 		  public function jsonData(){
 					 $jsonLetters = array();
 					 $callback = function ( $_letter ) use ( &$jsonLetters ) {
-								array_push ( $jsonLetters, $_letter->jsonData() );
+								//array_push ( $jsonLetters, $_letter->jsonData() );
+								array_push ( $jsonLetters, $_letter->Id );
 					 };
         
 					 array_walk($this->letters, $callback);
