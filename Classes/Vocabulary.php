@@ -43,13 +43,14 @@ class Vocabulary{
 		return true;
    }
    
-
-
-   static function mb_str_split( $_string = "" ) {
-    # Split at all position not after the start: ^
-    # and not before the end: $
-   		return preg_split('/(?<!^)(?!$)/u', $_string );
-   }
+	public function getLetterFor($_l = ""){
+			  foreach ($this->languageLetters as $_index => $letter) {
+						 if ($letter->matches($_l)) {
+									return $letter;
+						 }
+			  }
+			  die ("FATAL letter match not found for:'" . $_l . "'.\n");
+	}
 
 }
 

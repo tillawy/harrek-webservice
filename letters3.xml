@@ -223,6 +223,7 @@
 		</ContextualForms>
 		<RootId>14</RootId>
 		<FamilyId>6</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>15</Id>
@@ -412,13 +413,46 @@
 			<Last> </Last>
 			<Medial> </Medial>
 			<Initial> </Initial>
-			<Isolated> </Isolated>
+			<Isolated>|</Isolated>
 		</ContextualForms>
 		<NextShouldBeInitial>1</NextShouldBeInitial>
-		<FamilyId>14</FamilyId>
+		<FamilyId></FamilyId>
 	</Letter>
+
 	<Letter>
 		<Id>29</Id>
+		<Name>line break</Name>
+		<Translit>line break</Translit>
+		<Value>line break</Value>
+		<ContextualForms>
+			<Last>\n</Last>
+			<Medial> </Medial>
+			<Initial> </Initial>
+			<Isolated>-</Isolated>
+		</ContextualForms>
+		<NextShouldBeInitial>1</NextShouldBeInitial>
+		<FamilyId></FamilyId>
+	</Letter>
+
+
+	<Letter>
+		<Id>30</Id>
+		<Name>tab break</Name>
+		<Translit>tab break</Translit>
+		<Value>tab break</Value>
+		<ContextualForms>
+			<Last>\t</Last>
+			<Medial>\t</Medial>
+			<Initial>\t</Initial>
+			<Isolated>+</Isolated>
+		</ContextualForms>
+		<NextShouldBeInitial>1</NextShouldBeInitial>
+		<FamilyId></FamilyId>
+	</Letter>
+
+
+	<Letter>
+		<Id>31</Id>
 		<Name>’alif</Name>
 		<Translit>’ / ā</Translit>
 		<Value>various, including /aː/ [a]</Value>
@@ -432,8 +466,9 @@
 		<FamilyId>0</FamilyId>
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
+
 	<Letter>
-		<Id>30</Id>
+		<Id>32</Id>
 		<Name>’alif</Name>
 		<Translit>’ / ā</Translit>
 		<Value>various, including /aː/ [a]</Value>
@@ -447,8 +482,9 @@
 		<FamilyId>0</FamilyId>
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
-		<Letter>
-		<Id>30</Id>
+
+	<Letter>
+		<Id>33</Id>
 		<Name>’alif</Name>
 		<Translit>’ / ā</Translit>
 		<Value>various, including /aː/ [a]</Value>
@@ -462,8 +498,9 @@
 		<FamilyId>0</FamilyId>
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
+
 	<Letter>
-		<Id>31</Id>
+		<Id>34</Id>
 		<Name>Korsi</Name>
 		<Translit></Translit>
 		<Value></Value>
@@ -473,7 +510,41 @@
 			<Initial>ىـ</Initial>
 			<Isolated>ىـ</Isolated>
 		</ContextualForms>
-		<RootId>31</RootId>
+		<RootId>34</RootId>
 		<FamilyId>1</FamilyId>
 	</Letter>
+
+<Letter>
+		<Id>35</Id>
+		<Name>tā’ marboota</Name>
+		<Translit></Translit>
+		<Value></Value>
+		<ContextualForms>
+			<Last>ـة</Last>
+			<Medial></Medial>
+			<Initial></Initial>
+			<Isolated>ة</Isolated>
+		</ContextualForms>
+		<RootId>35</RootId>
+		<FamilyId>14</FamilyId>
+		<NextShouldBeInitial>1</NextShouldBeInitial>
+	</Letter>
+
+<Letter>
+		<Id>36</Id>
+		<Name>hamza</Name>
+		<Translit></Translit>
+		<Value></Value>
+		<ContextualForms>
+			<Last>ء</Last>
+			<Medial>ء</Medial>
+			<Initial>ء</Initial>
+			<Isolated>ء</Isolated>
+		</ContextualForms>
+		<RootId>36</RootId>
+		<FamilyId></FamilyId>
+		<NextShouldBeInitial>1</NextShouldBeInitial>
+	</Letter>
+	
+
 </Letters>

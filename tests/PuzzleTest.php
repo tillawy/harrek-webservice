@@ -11,7 +11,7 @@ class PuzzleTest extends PHPUnit_Framework_TestCase
 		  private $puzzle;
 
 		  protected function setUp(){
-					 $this->str = "ابجد هوز حطي كلمن سعفص قرشت ثخ ض ذ ظغ";
+					 $this->str = file_get_contents("b.txt", true); ;
 					 $this->puzzle = Puzzle::PuzzleWithStr( $this->str );
 		  }
 

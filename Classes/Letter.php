@@ -69,9 +69,12 @@ class Letter extends JSONObject{
 	}
 
 	public function isSpace(){
-		return $this->matches(" ");
+		return $this->matches("|");
 	}
 
+	public function isLineBreak(){
+		return $this->matches("-");
+	}
 
 	public function stringPresentation(){
 		switch ($this->position) {

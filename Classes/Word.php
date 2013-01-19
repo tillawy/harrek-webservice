@@ -2,7 +2,11 @@
 
 
 class Word extends JSONObject{
+
+		  private $text;
+
 		  private $order;
+		  private $lastInLine = FALSE;
 		  private $letters = [];
 
 		  public function __construct(){
@@ -44,6 +48,7 @@ class Word extends JSONObject{
         
 					 array_walk($this->letters, $callback);
 					 $out = array ( "w" => $jsonLetters );
+					 //if ( $this->lastInLine ) $out["br"]=  1;
 					 return $out;
 		  }
 

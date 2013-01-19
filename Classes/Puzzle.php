@@ -1,8 +1,7 @@
 <?php
 
 //define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__.'/Classes/Letter.php'); 
-require_once(__ROOT__.'/Classes/Vocabulary.php'); 
+require_once(__ROOT__.'/require.php'); 
 
 
 class PuzzleDifficulty {
@@ -19,8 +18,9 @@ class Puzzle {
 	//private $string = "";
 	private $difficulty = PuzzleDifficulty::ADVANCED;
 	private $vocabulary;
-	private $sentence;	// an array of all letters
+	private $letters;	// an array of all letters
 	private $words; 		// an array of all words
+	private $all; 		// an array of all words and breaks
 
 
 	static function PuzzleWithFile($_file){
@@ -41,15 +41,26 @@ class Puzzle {
 
 
    public function parseLetters($_str = ""){
-	   	$this->sentence = [];
+			  WordsFactory::setVocabulary($this->vocabulary);
+			  $s = WordsFactory::tokenize($_str );
+					 //echo $s;
+			  list ( $this->all,  $this->words , $this->letters ) = WordsFactory::str_split_to_words( $s );
+			  //$this->resetLettersPositions(); // move to word
+
+			  //print ( count( $arr ) );
+			//$this->inspectWords();
+			/*  
+	   	$this->letters = [];
 			$this->words = [];
 	   	$strLetters = Vocabulary::mb_str_split($_str);
+			print_r ($strLetters);
 			$aWord = new Word();
 	   	foreach ($strLetters as $k => $val) {
 	   		foreach ($this->vocabulary->languageLetters as $_index => $letter) {
 	   			if ($letter->matches($val)) {
-						if ($letter->isSpace() ){
+						if ($letter->isSpace() or $letter->isLineBreak() ){
 								  $aWord->order = count( $this->words );
+								  $aWord->lastInLine = $letter->isLineBreak();
 								  array_push ($this->words, $aWord);
 								  $aWord = new Word();
 						} else {
@@ -59,13 +70,14 @@ class Puzzle {
 								  $aWord->order = count( $this->words );
 								  array_push ($this->words, $aWord);
 						}
-	   				array_push($this->sentence, $letter );
+	   				array_push($this->letters, $letter );
 	   				break;
 	   			}
 	   		}
 	   	}
 			$this->resetLettersPositions();
 			//$this->inspectWords();
+			*/
 	}
 
 	public function __get($property) {
@@ -112,7 +124,8 @@ class Puzzle {
 
 	private $lastRandom = 0;
 	public function getLetterAtIndex($_i){
-		$l = $this->sentence[$_i];
+		$l = $this->letters[$_i];
+		//print_r ( $l );
 		if ( $l->isOrphan() ){
 			// nothing here
 		} elseif ( $this->lastRandom < $this->minimumCorrectContinousLetters()) {
@@ -127,30 +140,30 @@ class Puzzle {
 
 
    function resetLettersPositions(){
-   	for ($i=0; $i < sizeof($this->sentence); $i++) { 
+   	for ($i=0; $i < sizeof($this->letters); $i++) { 
    		$this->resetLetterPositionAtIndex($i);
    	}
    }
 
    private function resetLetterPositionAtIndex($_i = 0){
-   	//print ($_i . " " . $this->sentence[$_i]->initial . " " . count ($this->languageLetters));
-   	$letter = $this->sentence[$_i];
+   	//print ($_i . " " . $this->letters[$_i]->initial . " " . count ($this->languageLetters));
+   	$letter = $this->letters[$_i];
 
    	if ( $_i ==  0 ) {
    		$letter->position = LetterPosition::INITIAL;
    		return;
    	}
    	if ( $_i > 0 ) {
-   		if ( $this->sentence[$_i-1]->nextShouldBeInitial ) {
+   		if ( $this->letters[$_i-1]->nextShouldBeInitial ) {
    			$letter->position = LetterPosition::INITIAL;
    			return;
    		}
    	}
-   	if ($_i == sizeof($this->sentence) - 1 ) {
+   	if ($_i == sizeof($this->letters) - 1 ) {
    		$letter->position = LetterPosition::LAST;
    		return;
    	}
-   	if ( $this->sentence[$_i+1]->isSpace()) {
+   	if ( $this->letters[$_i+1]->isSpace()) {
    		$letter->position = LetterPosition::LAST;
    		return;
    	}
@@ -158,7 +171,7 @@ class Puzzle {
    	return;
    }
 
-	function inspectWords(){
+	/*function inspectWords(){
 			$str = ""; 
 			$str .= ( count( $this->words ) ); 
 			foreach ( $this->words as $_word ){
@@ -166,7 +179,7 @@ class Puzzle {
 					$str .= ( count($_word->letters) . " " . $_word->getPrint()  .  " " . $_word->order ); 
 			}
 			return $str;
-	}
+	}*/
 
   
 }

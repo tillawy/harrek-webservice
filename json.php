@@ -1,22 +1,26 @@
 <?php
 
-require_once('./Classes/JSONObject.php'); 
-require_once('./Classes/Vocabulary.php'); 
-require_once('./Classes/Letter.php'); 
-require_once('./Classes/Puzzle.php');
-require_once('./Classes/Word.php');
+require_once('./require.php');
 
 header('Content-Type: application/json; charset=utf-8');
 
 
-$puzzle = Puzzle::PuzzleWithFile('./b.txt');
+$puzzle = Puzzle::PuzzleWithFile('./c.txt');
 $puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 
-$words = array();
-foreach ( $puzzle->words as $_wi => $_word ){
-		  array_push( $words, $_word->jsonData() );
-}
-echo json_encode ( array("words" =>  $words ) );
+$arr = array();
 
+if (array_key_exists("req-obj", $_GET) && $_GET['req-obj'] == "words" ){
+		   $arr =  $puzzle->words;
+} else {
+		   $arr =  $puzzle->all;
+}
+
+$output = [];
+foreach ( $arr as  $_obj ){
+		  array_push( $output , $_obj->jsonData() );
+}
+
+echo json_encode ( array("words" =>  $output ) );
 
 ?>
