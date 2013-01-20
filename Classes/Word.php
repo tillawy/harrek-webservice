@@ -9,8 +9,14 @@ class Word extends JSONObject{
 		  private $lastInLine = FALSE;
 		  private $letters = [];
 
-		  public function __construct(){
+		  public function __construct( array $_lettersArray = null ){
 					 $this->letters = [];
+					 if ($_lettersArray){
+								foreach ( $_lettersArray as $_lv ){
+										  $letter = WordsFactory::getLetterFor($_lv);
+										  $this->addLetter($letter);
+								}
+					 }
 		  }
 
 		  public function __get($property) {
@@ -34,9 +40,22 @@ class Word extends JSONObject{
 
 		  public function getLetterAtIndex($_i){
 					 $letter = $this->letters[$_i];
-					 if ($_i == 0){
+
+
+					 if ($_i > 0  ){
+								$previusLetter = $this->letters[$_i - 1];
+					 }
+
+
+					 if ($_i > 0 and isset( $previusLetter) and $previusLetter->nextShouldBeInitial ){
+								if ($_i == sizeof($this->letters) - 1 ){
+										  $letter->position = LetterPosition::ISOLATED;
+								} else {
+										  $letter->position = LetterPosition::INITIAL;
+								}
+					 } else if ($_i == 0){
 								$letter->position = LetterPosition::INITIAL;
-					 } else if ($_i == sizeof( $this->letters ) - 1){
+					 } elseif ($_i == sizeof( $this->letters ) - 1){
 								$letter->position = LetterPosition::LAST;
 								//echo $letter->stringPresentation() . " ";
 								//echo $letter->position  . " ";

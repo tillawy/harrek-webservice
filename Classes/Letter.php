@@ -3,6 +3,7 @@
 
 class LetterPosition {
 	
+	const ISOLATED = 0;
 	const INITIAL = 1;
 	const MEDIAL = 2;
 	const LAST = 3;
@@ -78,6 +79,10 @@ class Letter extends JSONObject{
 
 	public function stringPresentationForPosition( $position = 0){
 		switch ($position) {
+			case LetterPosition::ISOLATED:{
+				return $this->isolated;
+				break;
+			}
 			case LetterPosition::INITIAL:{
 				return $this->initial;
 				break;

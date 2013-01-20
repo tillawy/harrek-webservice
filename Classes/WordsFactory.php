@@ -50,26 +50,25 @@ class WordsFactory {
 										  //echo "space\n";
 										  continue;
 								} else {
-										  $word = new Word();
 										  $wordLetters = self::mb_str_split ( $_v );
+										  $word = new Word(  $wordLetters );
 										  foreach ($wordLetters as $_iv => $_lv){
-													 $letter = self::$vocabulary->getLetterFor($_lv);
-													 $word->addLetter($letter);
-													 //array_push ( $letters  , $letter );
+													 $letter = self::getLetterFor($_lv);
 													 $letters []=  $letter;
 										  }
-										  //array_push( $words , $word );
 										  $word->order = $_i;
 										  $words []= $word;
 										  $obj = $word;
-										  //echo "\n";
 								}
-
-								//array_push( $all , $obj );
 								$all []= $obj;
 					 }
 
 					 return array ($all, $words, $letters );
+		  }
+
+
+		  public static function getLetterFor($_l = ""){
+					 return self::$vocabulary->getLetterFor($_l);
 		  }
 
 		  static function str_replace_space( $_string = "" ) {

@@ -36,7 +36,7 @@
 		<Translit>t</Translit>
 		<Value>/t/</Value>
 		<ContextualForms>
-			<Last>ـتـ</Last>
+			<Last>ـت</Last>
 			<Medial>ـتـ</Medial>
 			<Initial>تـ</Initial>
 			<Isolated>ت</Isolated>
@@ -118,7 +118,7 @@
 		</ContextualForms>
 		<RootId>7</RootId>
 		<FamilyId>3</FamilyId>
-		<NextShouldBeInitial>0</NextShouldBeInitial>
+		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>8</Id>
@@ -348,6 +348,7 @@
 		</ContextualForms>
 		<RootId>23</RootId>
 		<FamilyId>9</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>24</Id>
@@ -362,6 +363,7 @@
 		</ContextualForms>
 		<RootId>31</RootId>
 		<FamilyId>1</FamilyId>
+		<NextShouldBeInitial>0</NextShouldBeInitial>
 	</Letter>
 	<Letter>
 		<Id>25</Id>
