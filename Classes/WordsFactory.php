@@ -51,7 +51,8 @@ class WordsFactory {
 										  continue;
 								} else {
 										  $word = new Word();
-										  foreach (self::mb_str_split ( $_v ) as $_iv => $_lv){
+										  $wordLetters = self::mb_str_split ( $_v );
+										  foreach ($wordLetters as $_iv => $_lv){
 													 $letter = self::$vocabulary->getLetterFor($_lv);
 													 $word->addLetter($letter);
 													 //array_push ( $letters  , $letter );

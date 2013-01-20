@@ -32,6 +32,20 @@ class Word extends JSONObject{
 					 array_push ($this->letters, $_l);
 		  }
 
+		  public function getLetterAtIndex($_i){
+					 $letter = $this->letters[$_i];
+					 if ($_i == 0){
+								$letter->position = LetterPosition::INITIAL;
+					 } else if ($_i == sizeof( $this->letters ) - 1){
+								$letter->position = LetterPosition::LAST;
+								//echo $letter->stringPresentation() . " ";
+								//echo $letter->position  . " ";
+					 } else {
+								$letter->position = LetterPosition::MEDIAL;
+					 }
+					 return $letter;
+		  }
+
 		  public function getPrint(){
 					 $str = array();
 					 foreach ( $this->letters as $_l){

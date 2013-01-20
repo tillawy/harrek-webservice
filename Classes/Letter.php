@@ -76,8 +76,8 @@ class Letter extends JSONObject{
 		return $this->matches("-");
 	}
 
-	public function stringPresentation(){
-		switch ($this->position) {
+	public function stringPresentationForPosition( $position = 0){
+		switch ($position) {
 			case LetterPosition::INITIAL:{
 				return $this->initial;
 				break;
@@ -87,11 +87,18 @@ class Letter extends JSONObject{
 				break;	
 			}
 
-			default:{
+			case LetterPosition::MEDIAL :{
 				return $this->medial;   
 				break;	
 			}
+			default:{
+					  die("unknown position");
+			}
 		}
+	}
+
+	public function stringPresentation(){
+		return $this->stringPresentationForPosition ($this->position);
 	}
 
 	public function isOrphan(){
@@ -107,7 +114,11 @@ class Letter extends JSONObject{
 	}
 
 	public function getFamily(){
-		return Letter::$families["f:" . $this->familyId];
+		$arr = Letter::$families["f:" . $this->familyId];
+		foreach ($arr as $l){
+				  $l->position = $this->position;
+		}
+		return $arr;
 	}
 
 	public function getRandomFamilyMember(){
@@ -123,9 +134,9 @@ class Letter extends JSONObject{
 			  return array( "l" => $this->Id );
 	}
 
-	public function family(){
+	/*public function family(){
 			return  Letter::$families["f:" . $this->familyId];
-	}
+	}*/
 
 	public function __set($property, $value) {
 		if (property_exists($this, $property)) {

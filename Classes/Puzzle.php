@@ -123,7 +123,7 @@ class Puzzle {
 	}
 
 	private $lastRandom = 0;
-	public function getLetterAtIndex($_i){
+	/*public function getLetterAtIndex($_i){
 		$l = $this->letters[$_i];
 		//print_r ( $l );
 		if ( $l->isOrphan() ){
@@ -135,7 +135,7 @@ class Puzzle {
 			$l->isRandomizeable = TRUE;
 		}
 		return $l;
-	}
+	}*/
 	
 
 

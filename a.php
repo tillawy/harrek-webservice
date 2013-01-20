@@ -6,13 +6,6 @@
 
 <?
 require_once('./require.php'); 
-/*
-require_once('./Classes/JSONObject.php'); 
-require_once('./Classes/Vocabulary.php'); 
-require_once('./Classes/Letter.php'); 
-require_once('./Classes/Puzzle.php');
-require_once('./Classes/Word.php');
-*/
 header('Content-Type: text/html; charset=utf-8');
 
 ?>
@@ -30,24 +23,26 @@ $idx = 0;
 //echo (count($puzzle->sentence));
 foreach ( $puzzle->words as $_wi => $_word ){
         //echo $_word->getPrint() . "<br/>";
-		  echo "<div class='word' order='" . $_wi . "' >";
+		  echo "<div class='word' order='" . $_wi . "' >\n";
 		  //echo $_word->order;
         foreach ( $_word->letters as $_li => $_let){
-                $letter = $puzzle->getLetterAtIndex($idx++);
+                //$letter = $puzzle->getLetterAtIndex($idx++);
+                $letter = $_word->getLetterAtIndex($_li);
                 //echo "\n isRandomizeable: " . $_let->isRandomizeable . "<br/>\n";
                 if ( $letter->isRandomizeable ){
-                        echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
+                        echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>\n";
                         foreach ($letter->getFamily() as $_fLetter ) {
-                                $_fLetter->position = $letter->position;
+                                //$_fLetter->position = $letter->position;
                                 $correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
-                                echo "<div class='option' isCorrect='" . $correct . "'>" .
-                                        $_fLetter->stringPresentation() 
+                                echo "<div class='option' p='$letter->position' isCorrect='" . $correct . "'>" .
+                                        //$_fLetter->stringPresentationForPosition (  $letter->position ) 
+                                        $_fLetter->stringPresentation()
                                         . "</div>";
                         }
                         echo "</div>\n";
                 } else {
-                        echo "<div class='container'>";
-                        echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
+                        echo "<div class='container'>\n";
+                        echo "\t<div class='nooption' p='$letter->position'>" . $letter->stringPresentation() . "</div>\n";
                         echo "</div>\n";
                 }
         }
