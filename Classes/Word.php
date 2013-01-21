@@ -9,28 +9,22 @@ class Word extends JSONObject{
 		  private $lastInLine = FALSE;
 		  private $letters = [];
 
-		  public function __construct( array $_lettersArray = null ){
+		  public function __construct(){
 					 $this->letters = [];
-					 if ($_lettersArray){
-								foreach ( $_lettersArray as $_lv ){
-										  $letter = WordsFactory::getLetterFor($_lv);
-										  $this->addLetter($letter);
-								}
-					 }
 		  }
 
 		  public function __get($property) {
 					 if (property_exists($this, $property)) {
 								return $this->$property;
 					 }  else {
-								die ("property:" . $property . " does not exist");
+								die ("property: " . $property . " does not exist for:" .  get_class());
 					 }
 		  }
 		  public function __set($property, $value) {
 					 if (property_exists($this, $property)) {
 								$this->$property = $value;
 					 }  else {
-								die ("property:" . $property . " does not exist");
+								die ("property: " . $property . " does not exist for:" .  get_class());
 					 }
 					 return $this;
 		  }

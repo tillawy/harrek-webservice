@@ -36,6 +36,7 @@ class WordsFactory {
 					 $letters = array();
 					 $all = array();
 					 //print_r ( $arr );
+					 $randomizeCounter = 1;
 					 foreach ($arr as $_i => $_v){
 								$obj = null;
 								if ($_v == "+"){
@@ -53,8 +54,21 @@ class WordsFactory {
 										  $wordLetters = self::mb_str_split ( $_v );
 										  $word = new Word(  $wordLetters );
 										  foreach ($wordLetters as $_iv => $_lv){
+													 //echo $_iv . " $_lv" . "\n";
 													 $letter = self::getLetterFor($_lv);
+													 $letter->indexInWord = $_iv;
+													 $letter->wordIndex =  $_i;
+													 $letter->indexInPuzzle = sizeof( $letters );
+													 if ( $letter->isOrphan() == FALSE ){
+																//echo $randomizeCounter . " " ;
+																$letter->indexRandomize = $randomizeCounter++;
+													 } else {
+																$letter->indexRandomize = $randomizeCounter;
+																//echo " x ";
+													 }
+													 //echo "- " .  $letter->isolated . " " . $randomizeCounter . " " .  $letter->indexRandomize . " \n" ;
 													 $letters []=  $letter;
+													 $word->addLetter($letter);
 										  }
 										  $word->order = $_i;
 										  $words []= $word;
@@ -104,8 +118,17 @@ class WordsFactory {
 								$str .= (  $_word->getPrint()  .  " " . $_word->order ); 
 					 }
 					 return $str;
-	}
+		  }
 
+		  static function inspectLetters( $_letters ){
+					 $str = ""; 
+					 $str .= ( count( $_letters ) ) . " "; 
+					 foreach ( $_letters as $_i => $_letter ){
+								$str .= " $_i => ";
+								$str .= (  $_letter->isolated ) . ","; 
+					 }
+					 return $str;
+		  }
 
 }
 

@@ -21,6 +21,10 @@ class Vocabulary{
          $this->parseXmlFile($_xmlFile);
       }
    }
+	public function __destruct(){
+			  //echo "__destruct";
+			  //foreach(Letter::$families as $_i => $_v){ unset (  Letter::$families[$_i] ); }
+	}
 
 
    public function parseXmlFile($_xmlFile = null){
@@ -46,7 +50,7 @@ class Vocabulary{
 	public function getLetterFor($_l = ""){
 			  foreach ($this->languageLetters as $_index => $letter) {
 						 if ($letter->matches($_l)) {
-									return $letter;
+									return clone $letter;
 						 }
 			  }
 			  die ("FATAL letter match not found for:'" . $_l . "'.\n");

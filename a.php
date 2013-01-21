@@ -13,6 +13,8 @@ header('Content-Type: text/html; charset=utf-8');
 <?
 $puzzle = Puzzle::PuzzleWithFile('./c.txt');
 $puzzle->difficulty = PuzzleDifficulty::ADVANCED;
+//$puzzle->difficulty = PuzzleDifficulty::FLASH;
+//$puzzle->difficulty = PuzzleDifficulty::EASY;
 ?>
 
 
@@ -26,16 +28,14 @@ foreach ( $puzzle->words as $_wi => $_word ){
 		  echo "<div class='word' order='" . $_wi . "' >\n";
 		  //echo $_word->order;
         foreach ( $_word->letters as $_li => $_let){
-                //$letter = $puzzle->getLetterAtIndex($idx++);
                 $letter = $_word->getLetterAtIndex($_li);
                 //echo "\n isRandomizeable: " . $_let->isRandomizeable . "<br/>\n";
-                if ( $letter->isRandomizeable ){
+                //if ( $letter->isRandomizeable ){
+                if ( $puzzle->isLetterRandomizeable( $letter ) ){
                         echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>\n";
                         foreach ($letter->getFamily() as $_fLetter ) {
-                                //$_fLetter->position = $letter->position;
                                 $correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
                                 echo "<div class='option' p='$letter->position' isCorrect='" . $correct . "'>" .
-                                        //$_fLetter->stringPresentationForPosition (  $letter->position ) 
                                         $_fLetter->stringPresentation()
                                         . "</div>";
                         }

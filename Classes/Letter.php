@@ -21,11 +21,16 @@ class Letter extends JSONObject{
 	private $root;
 	private $name;
 	private $nextShouldBeInitial = FALSE;
+
+	private $indexInWord = 0;
+	private $wordIndex = 0;
+	private $indexInPuzzle = 0;
+	private $indexRandomize = 0;
  
 	private $position ;
-	private $isRandomizeable = FALSE;
 
 	public static $families = array();
+
 
 	function __construct(SimpleXMLElement $obj) {
 		$this->isolated =  $obj->ContextualForms->Isolated;
@@ -48,14 +53,22 @@ class Letter extends JSONObject{
 		if ($obj->FamilyId) {
 			$this->familyId = $this->getTextContent( $obj->FamilyId );
 
+			/* keep track of famillies */
 			if ( ! array_key_exists("f:" . $this->familyId , Letter::$families) ){
 				Letter::$families["f:" . $this->familyId] = array();
 			}
-
-			array_push( Letter::$families["f:" . $this->familyId] , $this);
+			if ( ! array_key_exists("ids" , Letter::$families) ){
+				Letter::$families["ids"] = [];
+			}
+			/* make sure we don't add same letter twice */
+			if (  ! in_array( $this->Id , Letter::$families["ids"] ) ){
+					  Letter::$families["ids"] []= $this->Id;
+					  Letter::$families["f:" . $this->familyId] []=  $this;
+			}
 		}
 	
 	}
+
 
 	private function getTextContent(SimpleXMLElement $_sxml){
 			  return dom_import_simplexml($_sxml)->textContent;
@@ -112,7 +125,7 @@ class Letter extends JSONObject{
 
 	public function positionInFamily(){
 		foreach ($this->getFamily() as $_key => $_letter) {
-			if ($this == $_letter) {
+			if ($this->Id == $_letter->Id) {
 				return $_key;
 			}
 		}
@@ -147,7 +160,7 @@ class Letter extends JSONObject{
 		if (property_exists($this, $property)) {
 			$this->$property = $value;
 		}  else {
-		   die ("property:" . $property . " does not exist");
+		   die ("set property:" . $property . " does not exist " . get_class());
 		}
 		return $this;
 	}
@@ -157,7 +170,7 @@ class Letter extends JSONObject{
 		if (property_exists($this, $property)) {
 			return $this->$property;
 		}  else {
-		   die ("property:" . $property . " does not exist");
+		   die ("get property:" . $property . " does not exist " . get_class());
 		}
 	}
 

@@ -43,48 +43,19 @@ class Puzzle {
    public function parseLetters($_str = ""){
 			  WordsFactory::setVocabulary($this->vocabulary);
 			  $s = WordsFactory::tokenize($_str );
-					 //echo $s;
+			  //echo $s;
 			  list ( $this->all,  $this->words , $this->letters ) = WordsFactory::str_split_to_words( $s );
 			  //$this->resetLettersPositions(); // move to word
 
 			  //print ( count( $arr ) );
 			//$this->inspectWords();
-			/*  
-	   	$this->letters = [];
-			$this->words = [];
-	   	$strLetters = Vocabulary::mb_str_split($_str);
-			print_r ($strLetters);
-			$aWord = new Word();
-	   	foreach ($strLetters as $k => $val) {
-	   		foreach ($this->vocabulary->languageLetters as $_index => $letter) {
-	   			if ($letter->matches($val)) {
-						if ($letter->isSpace() or $letter->isLineBreak() ){
-								  $aWord->order = count( $this->words );
-								  $aWord->lastInLine = $letter->isLineBreak();
-								  array_push ($this->words, $aWord);
-								  $aWord = new Word();
-						} else {
-								  $aWord->addLetter($letter);
-						}
-						if ($k == count( $strLetters ) - 1 ){
-								  $aWord->order = count( $this->words );
-								  array_push ($this->words, $aWord);
-						}
-	   				array_push($this->letters, $letter );
-	   				break;
-	   			}
-	   		}
-	   	}
-			$this->resetLettersPositions();
-			//$this->inspectWords();
-			*/
 	}
 
 	public function __get($property) {
 		if (property_exists($this, $property)) {
 			return $this->$property;
 		}  else {
-		   die ("property:" . $property . " does not exist");
+		   die ("property: " . $property . " does not exist for:" .  get_class());
 		}
 	}
 
@@ -92,7 +63,7 @@ class Puzzle {
 		if (property_exists($this, $property)) {
 			$this->$property = $value;
 		}  else {
-		   die ("property:" . $property . " does not exist");
+		   die ("property: " . $property . " does not exist for:" .  get_class());
 		}
 		return $this;
 	}
@@ -123,23 +94,32 @@ class Puzzle {
 	}
 
 	private $lastRandom = 0;
-	/*public function getLetterAtIndex($_i){
-		$l = $this->letters[$_i];
-		//print_r ( $l );
-		if ( $l->isOrphan() ){
-			// nothing here
-		} elseif ( $this->lastRandom < $this->minimumCorrectContinousLetters()) {
-			$this->lastRandom ++;
-		} else {
-			$this->lastRandom = 0;
-			$l->isRandomizeable = TRUE;
-		}
-		return $l;
+
+	/*
+	public function isLetterIndexOfWordRandomizeable( Word $word , $letterIndex = 0){
+			  $l = $word->getLetterAtIndex( $letterIndex );
+			  return $this->isLetterRandomizeable( $word, $letterIndex );
 	}*/
+
+	public function isLetterRandomizeable( Letter $letter ){
+			  //echo "\n". $letter->isolated . ":" . $letter->indexRandomize . ":" . $letter->indexInWord . ":" . $letter->wordIndex  . ":" . $letter->indexInPuzzle  . " ";
+			  //echo "\n". $letter->isolated . ":" . $letter->indexInWord;
+			  
+			  /*if ( $letter->isOrphan() ){
+						 // nothing here
+			  } elseif ( $this->lastRandom < $this->minimumCorrectContinousLetters()) {
+						 $this->lastRandom ++;
+			  } else {
+						 $this->lastRandom = 0;
+						 return true;
+			  }*/
+			  $r =  $letter->indexRandomize % $this->minimumCorrectContinousLetters() == 0;
+			  //echo "x: " . $letter->indexRandomize . " " . $this->minimumCorrectContinousLetters() . " ," ;
+			  return $r;
+	}
 	
 
-
-   function resetLettersPositions(){
+   /*private function resetLettersPositions(){
    	for ($i=0; $i < sizeof($this->letters); $i++) { 
    		$this->resetLetterPositionAtIndex($i);
    	}
@@ -170,16 +150,7 @@ class Puzzle {
    	$letter->position = LetterPosition::MEDIAL;
    	return;
    }
-
-	/*function inspectWords(){
-			$str = ""; 
-			$str .= ( count( $this->words ) ); 
-			foreach ( $this->words as $_word ){
-					 $str .= "<br>";
-					$str .= ( count($_word->letters) . " " . $_word->getPrint()  .  " " . $_word->order ); 
-			}
-			return $str;
-	}*/
+	 */
 
   
 }
