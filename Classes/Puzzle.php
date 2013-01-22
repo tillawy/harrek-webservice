@@ -95,62 +95,17 @@ class Puzzle {
 
 	private $lastRandom = 0;
 
-	/*
-	public function isLetterIndexOfWordRandomizeable( Word $word , $letterIndex = 0){
-			  $l = $word->getLetterAtIndex( $letterIndex );
-			  return $this->isLetterRandomizeable( $word, $letterIndex );
-	}*/
 
 	public function isLetterRandomizeable( Letter $letter ){
-			  //echo "\n". $letter->isolated . ":" . $letter->indexRandomize . ":" . $letter->indexInWord . ":" . $letter->wordIndex  . ":" . $letter->indexInPuzzle  . " ";
-			  //echo "\n". $letter->isolated . ":" . $letter->indexInWord;
-			  
-			  /*if ( $letter->isOrphan() ){
-						 // nothing here
-			  } elseif ( $this->lastRandom < $this->minimumCorrectContinousLetters()) {
-						 $this->lastRandom ++;
-			  } else {
-						 $this->lastRandom = 0;
-						 return true;
-			  }*/
+			  if ($letter->isOrphan()){
+						 return false;
+			  }
 			  $r =  $letter->indexRandomize % $this->minimumCorrectContinousLetters() == 0;
-			  //echo "x: " . $letter->indexRandomize . " " . $this->minimumCorrectContinousLetters() . " ," ;
+			  //echo "r: " . $r. " x: " . $letter->indexRandomize . " " . $this->minimumCorrectContinousLetters() . " ," ;
 			  return $r;
 	}
 	
 
-   /*private function resetLettersPositions(){
-   	for ($i=0; $i < sizeof($this->letters); $i++) { 
-   		$this->resetLetterPositionAtIndex($i);
-   	}
-   }
-
-   private function resetLetterPositionAtIndex($_i = 0){
-   	//print ($_i . " " . $this->letters[$_i]->initial . " " . count ($this->languageLetters));
-   	$letter = $this->letters[$_i];
-
-   	if ( $_i ==  0 ) {
-   		$letter->position = LetterPosition::INITIAL;
-   		return;
-   	}
-   	if ( $_i > 0 ) {
-   		if ( $this->letters[$_i-1]->nextShouldBeInitial ) {
-   			$letter->position = LetterPosition::INITIAL;
-   			return;
-   		}
-   	}
-   	if ($_i == sizeof($this->letters) - 1 ) {
-   		$letter->position = LetterPosition::LAST;
-   		return;
-   	}
-   	if ( $this->letters[$_i+1]->isSpace()) {
-   		$letter->position = LetterPosition::LAST;
-   		return;
-   	}
-   	$letter->position = LetterPosition::MEDIAL;
-   	return;
-   }
-	 */
 
   
 }

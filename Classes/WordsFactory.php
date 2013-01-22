@@ -36,7 +36,7 @@ class WordsFactory {
 					 $letters = array();
 					 $all = array();
 					 //print_r ( $arr );
-					 $randomizeCounter = 1;
+					 $randomizeCounter = 0;
 					 foreach ($arr as $_i => $_v){
 								$obj = null;
 								if ($_v == "+"){
@@ -64,7 +64,6 @@ class WordsFactory {
 																$letter->indexRandomize = $randomizeCounter++;
 													 } else {
 																$letter->indexRandomize = $randomizeCounter;
-																//echo " x ";
 													 }
 													 //echo "- " .  $letter->isolated . " " . $randomizeCounter . " " .  $letter->indexRandomize . " \n" ;
 													 $letters []=  $letter;
