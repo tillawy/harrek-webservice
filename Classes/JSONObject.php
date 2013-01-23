@@ -3,7 +3,7 @@
 
 abstract class JSONObject {
 		  private $order;
-		  abstract protected function jsonData();
+		  abstract protected function jsonData(Puzzle $p);
 
 		  public function __get($property) {
 					 if (property_exists($this, $property)) {

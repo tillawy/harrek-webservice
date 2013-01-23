@@ -105,6 +105,13 @@ class Puzzle {
 			  return $r;
 	}
 	
+	public function json(){
+			  $output = [];
+			  foreach ( $this->all as $_wi => $_obj ){
+						 $output []= $_obj->jsonData ($this);
+			  }
+				return $output;
+	}
 
 
   

@@ -2,7 +2,7 @@
 
 class TabBreak extends JSONObject{
 
-	public function jsonData(){
+	public function jsonData(Puzzle $puzzle){
 			  return array( "s" => "t" );
 	}
 

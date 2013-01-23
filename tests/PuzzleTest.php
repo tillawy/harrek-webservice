@@ -39,20 +39,26 @@ class PuzzleTest extends PHPUnit_Framework_TestCase
 					 //$somePuzzle = Puzzle::PuzzleWithStr( $anStr );
 					 $this->puzzle->difficulty = PuzzleDifficulty::HARD;
 
-					 $l0 = $this->puzzle->letters[0];
+					 $l0 = $this->puzzle->letters[0]; // a
 					 $this->assertTrue( $this->puzzle->isLetterRandomizeable( $l0 ), "randomizeable 0");
 					 
-					 $l1 = $this->puzzle->letters[1];
+					 $l1 = $this->puzzle->letters[1]; // b
 					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l1 ), "randomizeable 1");
 
-					 $l2 = $this->puzzle->letters[2];
+					 $l2 = $this->puzzle->letters[2]; // j
 					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l2 ), "randomizeable 2");
 
-					 $l3 = $this->puzzle->letters[3];
+					 $l3 = $this->puzzle->letters[3]; // d
 					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l3 ), "randomizeable 3");
 
-					 $l4 = $this->puzzle->letters[4];
-					 $this->assertTrue( $this->puzzle->isLetterRandomizeable( $l4 ), "randomizeable 4");
+					 $l4 = $this->puzzle->letters[4]; // ha2
+					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l4 ), "randomizeable 4");
+
+					 $l5 = $this->puzzle->letters[5]; // ww
+					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l5 ), "randomizeable 5");
+
+					 $l6 = $this->puzzle->letters[6]; // z
+					 $this->assertTrue( $this->puzzle->isLetterRandomizeable( $l6 ), "randomizeable 6");
 		  }
 
 }

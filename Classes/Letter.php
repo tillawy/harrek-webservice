@@ -139,6 +139,16 @@ class Letter extends JSONObject{
 		return $arr;
 	}
 
+	public function getFamilyIds(){
+			  $ids = [];
+			  $callback = function ( $_letter ) use ( &$ids ) {
+						 array_push ( $ids, $_letter->Id );
+			  };
+			  $f = $this->getFamily();
+			  array_walk($f, $callback);
+			  return $ids;
+	}
+
 	public function getRandomFamilyMember(){
 		if ( isset($this->familyId) ) {
 			$aLetter = $this->getFamily()[ array_rand($this->getFamily()) ];
@@ -148,8 +158,15 @@ class Letter extends JSONObject{
 		return $this;	
 	}
 
-	public function jsonData(){
-			  return array( "l" => $this->Id );
+	public function jsonData(Puzzle $puzzle){
+			  if ( $puzzle->isLetterRandomizeable( $this ) ){
+						 return [ "l" => $this->Id ,
+									"ci" => $this->positionInFamily() ,
+									"f" => $this->getFamilyIds() ,
+									"p" => $this->position 
+									];
+			  }
+			  return array( "l" => $this->Id , "p" => $this->position );
 	}
 
 	/*public function family(){

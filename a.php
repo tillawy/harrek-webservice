@@ -21,16 +21,10 @@ $puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
 <?
 
-$idx = 0;
-//echo (count($puzzle->sentence));
 foreach ( $puzzle->words as $_wi => $_word ){
-        //echo $_word->getPrint() . "<br/>";
 		  echo "<div class='word' order='" . $_wi . "' >\n";
-		  //echo $_word->order;
         foreach ( $_word->letters as $_li => $_let){
                 $letter = $_word->getLetterAtIndex($_li);
-                //echo "\n isRandomizeable: " . $_let->isRandomizeable . "<br/>\n";
-                //if ( $letter->isRandomizeable ){
                 if ( $puzzle->isLetterRandomizeable( $letter ) ){
                         echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>\n";
                         foreach ($letter->getFamily() as $_fLetter ) {
@@ -51,36 +45,6 @@ foreach ( $puzzle->words as $_wi => $_word ){
 ?>
 </div>
 
-<div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
-
-<?
-
-/*
-for ($i=0; $i < count($puzzle->sentence) ; $i++){ 
-	$letter = $puzzle->getLetterAtIndex($i);
-	if ( $letter->isRandomizeable ){
-		echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>";
-		foreach ($letter->getFamily() as $_fLetter ) {
-         $_fLetter->position = $letter->position;
-			$correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
-			echo "<div class='option' isCorrect='" . $correct . "'>" .
-			$_fLetter->stringPresentation() 
-			. "</div>\n";
-		}
-		echo "</div>\n";
-	} else {
-		echo "<div class='container'>";
-      echo "<div class='nooption'>" . $letter->stringPresentation() . "</div>";
-		echo "</div>\n";
-	}
-}
-*/
-
-?>
-
-</div>
-
-														
 
 
 <style>

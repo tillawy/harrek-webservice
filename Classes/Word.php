@@ -66,16 +66,16 @@ class Word extends JSONObject{
 					 }
 					 return implode($str);
 		  }
-		  public function jsonData(){
+
+		  public function jsonData( Puzzle $puzzle){
 					 $jsonLetters = array();
-					 $callback = function ( $_letter ) use ( &$jsonLetters ) {
-								//array_push ( $jsonLetters, $_letter->jsonData() );
-								array_push ( $jsonLetters, $_letter->Id );
-					 };
-        
-					 array_walk($this->letters, $callback);
-					 $out = array ( "w" => $jsonLetters );
-					 //if ( $this->lastInLine ) $out["br"]=  1;
+
+					 for ( $i = 0; $i < count($this->letters ) ; $i++) {
+								$letter = $this->getLetterAtIndex($i);
+								$jsonLetters []= $letter->jsonData($puzzle);
+					 }
+
+					 $out = [ "w" => [ "o" => $this->order , "ls" => $jsonLetters ] ];
 					 return $out;
 		  }
 
