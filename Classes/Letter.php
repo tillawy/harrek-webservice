@@ -123,7 +123,7 @@ class Letter extends JSONObject{
 		return count($this->getFamily()) == 1;
 	}
 
-	public function positionInFamily(){
+	public function indexInFamily(){
 		foreach ($this->getFamily() as $_key => $_letter) {
 			if ($this->Id == $_letter->Id) {
 				return $_key;
@@ -161,7 +161,7 @@ class Letter extends JSONObject{
 	public function jsonData(Puzzle $puzzle){
 			  if ( $puzzle->isLetterRandomizeable( $this ) ){
 						 return [ "l" => $this->Id ,
-									"ci" => $this->positionInFamily() ,
+									"ci" => $this->indexInFamily() ,
 									"f" => $this->getFamilyIds() ,
 									"p" => $this->position 
 									];

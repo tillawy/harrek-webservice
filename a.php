@@ -26,7 +26,7 @@ foreach ( $puzzle->words as $_wi => $_word ){
         foreach ( $_word->letters as $_li => $_let){
                 $letter = $_word->getLetterAtIndex($_li);
                 if ( $puzzle->isLetterRandomizeable( $letter ) ){
-                        echo "<div class='container options_container not_correct' correctIndex='" . $letter->positionInFamily() . "'>\n";
+                        echo "<div class='container options_container not_correct' correctIndex='" . $letter->indexInFamily() . "'>\n";
                         foreach ($letter->getFamily() as $_fLetter ) {
                                 $correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
                                 echo "<div class='option' p='$letter->position' isCorrect='" . $correct . "'>" .
