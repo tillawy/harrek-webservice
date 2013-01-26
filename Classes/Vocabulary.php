@@ -1,12 +1,11 @@
 <?php
 
-define('__ROOT__', dirname(dirname(__FILE__)));
-require_once(__ROOT__.'/Classes/Letter.php'); 
+require_once('require.php'); 
 
 
 class Vocabulary{
 
-	private $letters;
+	private $languageLetters;
 
 	public function __get($property) {
 		if (property_exists($this, $property)) {
@@ -54,6 +53,20 @@ class Vocabulary{
 						 }
 			  }
 			  die ("FATAL letter match not found for:'" . $_l . "'.\n");
+	}
+
+	public function json(){
+			  $out = [];
+			  foreach ($this->languageLetters as $_index => $_letter) {
+						 $out []= [ 
+									"id" => $_letter->Id,
+									"in" => $_letter->initial,
+									"is" => $_letter->isolated,
+									"me" => $_letter->medial,
+									"la" => $_letter->last,
+									];
+			  }
+			  return $out;
 	}
 
 }

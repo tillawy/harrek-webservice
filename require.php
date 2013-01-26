@@ -1,5 +1,8 @@
 <?php
 
+define('__ROOT__', dirname(dirname(__FILE__))."/letters/"  );
+//require_once(__ROOT__.'/Classes/Letter.php'); 
+
 require_once('./Classes/JSONObject.php'); 
 require_once('./Classes/Vocabulary.php'); 
 

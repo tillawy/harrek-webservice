@@ -33,10 +33,10 @@ class Letter extends JSONObject{
 
 
 	function __construct(SimpleXMLElement $obj) {
-		$this->isolated =  $obj->ContextualForms->Isolated;
-		$this->last =  $obj->ContextualForms->Last;
-		$this->medial =  $obj->ContextualForms->Medial;
-		$this->initial =  $obj->ContextualForms->Initial;
+		$this->isolated = $this->getTextContent( $obj->ContextualForms->Isolated );
+		$this->last =  $this->getTextContent( $obj->ContextualForms->Last );
+		$this->medial =  $this->getTextContent(  $obj->ContextualForms->Medial );
+		$this->initial = $this->getTextContent( $obj->ContextualForms->Initial ) ;
 
 		if ($obj->NextShouldBeInitial && $obj->NextShouldBeInitial  == 1) {
 			$this->nextShouldBeInitial = TRUE;
