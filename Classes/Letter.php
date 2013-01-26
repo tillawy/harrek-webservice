@@ -162,11 +162,12 @@ class Letter extends JSONObject{
 			  if ( $puzzle->isLetterRandomizeable( $this ) ){
 						 return [ "l" => $this->Id ,
 									"ci" => $this->indexInFamily() ,
+									"fId" => $this->familyId ,
 									"f" => $this->getFamilyIds() ,
-									"p" => $this->position 
+									"pp" => $this->position 
 									];
 			  }
-			  return array( "l" => $this->Id , "p" => $this->position );
+			  return array( "l" => $this->Id , "pp" => $this->position );
 	}
 
 	/*public function family(){

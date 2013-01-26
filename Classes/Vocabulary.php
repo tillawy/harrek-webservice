@@ -64,6 +64,8 @@ class Vocabulary{
 									"is" => $_letter->isolated,
 									"me" => $_letter->medial,
 									"la" => $_letter->last,
+									"fId" => $_letter->familyId,
+									"fam" => $_letter->getFamilyIds()
 									];
 			  }
 			  return $out;
