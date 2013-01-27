@@ -11,10 +11,10 @@ header('Content-Type: text/html; charset=utf-8');
 ?>
  
 <?
-$puzzle = Puzzle::PuzzleWithFile('./c.txt');
+$puzzle = Puzzle::PuzzleWithFile('./b.txt');
 $puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 //$puzzle->difficulty = PuzzleDifficulty::FLASH;
-//$puzzle->difficulty = PuzzleDifficulty::EASY;
+$puzzle->difficulty = PuzzleDifficulty::EASY;
 ?>
 
 

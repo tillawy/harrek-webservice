@@ -30,6 +30,7 @@ class Letter extends JSONObject{
 	private $position ;
 
 	public static $families = array();
+	public static $familiesTrack = array();
 
 
 	function __construct(SimpleXMLElement $obj) {
@@ -57,12 +58,13 @@ class Letter extends JSONObject{
 			if ( ! array_key_exists("f:" . $this->familyId , Letter::$families) ){
 				Letter::$families["f:" . $this->familyId] = array();
 			}
-			if ( ! array_key_exists("ids" , Letter::$families) ){
-				Letter::$families["ids"] = [];
+			//if ( ! array_key_exists("ids" , Letter::$familiesTrack) ){
+			if ( ! isset(Letter::$familiesTrack) ){
+				Letter::$familiesTrack = [];
 			}
 			/* make sure we don't add same letter twice */
-			if (  ! in_array( $this->Id , Letter::$families["ids"] ) ){
-					  Letter::$families["ids"] []= $this->Id;
+			if (  ! in_array( $this->Id , Letter::$familiesTrack ) ){
+					  Letter::$familiesTrack []= $this->Id;
 					  Letter::$families["f:" . $this->familyId] []=  $this;
 			}
 		}
