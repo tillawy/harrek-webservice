@@ -75,7 +75,7 @@ class Word extends JSONObject{
 								$jsonLetters []= $letter->jsonData($puzzle);
 					 }
 
-					 $out = [ "w" => [ "o" => $this->order , "ls" => $jsonLetters ] ];
+					 $out = [ "w" => [ "ls" => $jsonLetters ] , "o" => $this->order  ];
 					 return $out;
 		  }
 

@@ -24,7 +24,7 @@ abstract class JSONObject {
 
 
 		  public function jsonData(Puzzle $puzzle){
-					 return array( "o" => $this->order, "s" => $this->getPrint() );
+					 return [ "o" => $this->order, "s" => $this->getPrint() ];
 		  }
 
 }
