@@ -2,8 +2,7 @@
 
 
 abstract class JSONObject {
-		  private $order;
-		  abstract protected function jsonData(Puzzle $p);
+		  protected $order;
 
 		  public function __get($property) {
 					 if (property_exists($this, $property)) {
@@ -22,6 +21,12 @@ abstract class JSONObject {
 					 }
 					 return $this;
 		  }
+
+
+		  public function jsonData(Puzzle $puzzle){
+					 return array( "o" => $this->order, "s" => $this->getPrint() );
+		  }
+
 }
 
 ?>

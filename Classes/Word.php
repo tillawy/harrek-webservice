@@ -5,7 +5,7 @@ class Word extends JSONObject{
 
 		  private $text;
 
-		  private $order;
+		  //private $order;
 		  private $lastInLine = FALSE;
 		  private $letters = [];
 

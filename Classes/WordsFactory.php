@@ -69,10 +69,11 @@ class WordsFactory {
 													 $letters []=  $letter;
 													 $word->addLetter($letter);
 										  }
-										  $word->order = $_i;
+										  //$word->order = $_i;
 										  $words []= $word;
 										  $obj = $word;
 								}
+								$obj->order = $_i;
 								$all []= $obj;
 					 }
 
