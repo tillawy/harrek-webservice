@@ -126,11 +126,14 @@ class Letter extends JSONObject{
 	}
 
 	public function indexInFamily(){
-		foreach ($this->getFamily() as $_key => $_letter) {
+			  $key = array_search($this->Id  , $this->getFamilyIds() ); // $key = 2;
+			  //echo "indexInFamily:$key \n";
+			  return $key;
+		/*foreach ($this->getFamily() as $_key => $_letter) {
 			if ($this->Id == $_letter->Id) {
 				return $_key;
 			}
-		}
+		}*/
 	}
 
 	public function getFamily(){
