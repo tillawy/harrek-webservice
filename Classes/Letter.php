@@ -164,14 +164,10 @@ class Letter extends JSONObject{
 	}
 
 	public function jsonData(Puzzle $puzzle){
-			  if ( $puzzle->isLetterRandomizeable( $this ) ){
-						 return [ "lId" => $this->Id ,
-									"ci" => $this->indexInFamily() ,
-									"fId" => $this->familyId ,
-									"pp" => $this->position 
-									];
-			  }
-			  return array( "lId" => $this->Id , "pp" => $this->position );
+			  $output = [ "lId" => $this->Id , "pp" => $this->position ];
+			  $output["r"] = $puzzle->isLetterRandomizeable( $this ) ? 1 : 0 ;
+			  //if ( $puzzle->isLetterRandomizeable( $this ) ){ }
+			  return $output;
 	}
 
 	/*public function family(){
