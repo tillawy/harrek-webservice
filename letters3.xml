@@ -21,8 +21,8 @@
 		<Translit>b</Translit>
 		<Value>/b/ (sometimes /p/ in loanw`6ords)[b]</Value>
 		<ContextualForms>
-			<Last>ـبـ</Last>
-			<Medial>ـبـ</Medial>
+			<Last>ــبـ</Last>
+			<Medial>ــبـ</Medial>
 			<Initial>بـ</Initial>
 			<Isolated>ب</Isolated>
 		</ContextualForms>
@@ -36,8 +36,8 @@
 		<Translit>t</Translit>
 		<Value>/t/</Value>
 		<ContextualForms>
-			<Last>ـت</Last>
-			<Medial>ـتـ</Medial>
+			<Last>ــت</Last>
+			<Medial>ــتـ</Medial>
 			<Initial>تـ</Initial>
 			<Isolated>ت</Isolated>
 		</ContextualForms>
@@ -51,8 +51,8 @@
 		<Translit>th (also ṯ)</Translit>
 		<Value>/θ/</Value>
 		<ContextualForms>
-			<Last>ـثـ</Last>
-			<Medial>ـثـ</Medial>
+			<Last>ــثـ</Last>
+			<Medial>ــثـ</Medial>
 			<Initial>ثـ</Initial>
 			<Isolated>ث</Isolated>
 		</ContextualForms>
@@ -384,8 +384,8 @@
 		<Translit>w / ū / aw</Translit>
 		<Value>/w/, /uː/, /aw/, sometimes /u/, /o/, and /oː/ in loanwords</Value>
 		<ContextualForms>
-			<Last>ـو</Last>
-			<Medial>ـو</Medial>
+			<Last>ــو</Last>
+			<Medial>ــو</Medial>
 			<Initial>و</Initial>
 			<Isolated>و</Isolated>
 		</ContextualForms>
@@ -548,5 +548,20 @@
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
 	
+<Letter>
+		<Id>37</Id>
+		<Name>alif maksoora</Name>
+		<Translit></Translit>
+		<Value></Value>
+		<ContextualForms>
+			<Last>ـى</Last>
+			<Medial></Medial>
+			<Initial></Initial>
+			<Isolated>ى</Isolated>
+		</ContextualForms>
+		<RootId>36</RootId>
+		<FamilyId>1</FamilyId>
+		<NextShouldBeInitial>1</NextShouldBeInitial>
+	</Letter>
 
 </Letters>

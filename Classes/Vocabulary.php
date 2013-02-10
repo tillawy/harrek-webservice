@@ -52,7 +52,9 @@ class Vocabulary{
 									return clone $letter;
 						 }
 			  }
-			  die ("FATAL letter match not found for:'" . $_l . "'.\n");
+			  //die ("FATAL letter match not found for:'" . $_l . "'.\n");
+			  error_log("FATAL letter match not found for:'" . $_l . "'.\n");
+			  return null;
 	}
 
 	public function json(){

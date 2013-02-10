@@ -56,6 +56,10 @@ class WordsFactory {
 										  foreach ($wordLetters as $_iv => $_lv){
 													 //echo $_iv . " $_lv" . "\n";
 													 $letter = self::getLetterFor($_lv);
+													 if (! $letter ){
+																continue;
+													 }
+
 													 $letter->indexInWord = $_iv;
 													 $letter->wordIndex =  $_i;
 													 $letter->indexInPuzzle = sizeof( $letters );
