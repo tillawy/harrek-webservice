@@ -100,8 +100,16 @@ class Puzzle {
 			  if ($letter->isOrphan()){
 						 return false;
 			  }
+
+			  // TBD ...
+			  // alif is not randomizeable // very irritating 
+			  // should be handled from xml
+			  if ($letter->familyId == 0 ){
+						 return false;
+			  }
+
 			  $r =  $letter->indexRandomize % $this->minimumCorrectContinousLetters() == 0;
-			  //echo "r: " . $r. " x: " . $letter->indexRandomize . " " . $this->minimumCorrectContinousLetters() . " ," ;
+			  //echo "r: " . $r. " ,x: " . $letter->indexRandomize . " ,min: " . $this->minimumCorrectContinousLetters() . " ," ;
 			  return $r;
 	}
 	
