@@ -21,8 +21,8 @@
 		<Translit>b</Translit>
 		<Value>/b/ (sometimes /p/ in loanw`6ords)[b]</Value>
 		<ContextualForms>
-			<Last>ــبـ</Last>
-			<Medial>ــبـ</Medial>
+			<Last>ـب</Last>
+			<Medial>ـبـ</Medial>
 			<Initial>بـ</Initial>
 			<Isolated>ب</Isolated>
 		</ContextualForms>
@@ -36,8 +36,8 @@
 		<Translit>t</Translit>
 		<Value>/t/</Value>
 		<ContextualForms>
-			<Last>ــت</Last>
-			<Medial>ــتـ</Medial>
+			<Last>ـت</Last>
+			<Medial>ـتـ</Medial>
 			<Initial>تـ</Initial>
 			<Isolated>ت</Isolated>
 		</ContextualForms>
@@ -51,8 +51,8 @@
 		<Translit>th (also ṯ)</Translit>
 		<Value>/θ/</Value>
 		<ContextualForms>
-			<Last>ــثـ</Last>
-			<Medial>ــثـ</Medial>
+			<Last>ـثـ</Last>
+			<Medial>ـثـ</Medial>
 			<Initial>ثـ</Initial>
 			<Isolated>ث</Isolated>
 		</ContextualForms>
@@ -384,8 +384,8 @@
 		<Translit>w / ū / aw</Translit>
 		<Value>/w/, /uː/, /aw/, sometimes /u/, /o/, and /oː/ in loanwords</Value>
 		<ContextualForms>
-			<Last>ــو</Last>
-			<Medial>ــو</Medial>
+			<Last>ـو</Last>
+			<Medial>ـو</Medial>
 			<Initial>و</Initial>
 			<Isolated>و</Isolated>
 		</ContextualForms>
@@ -513,7 +513,7 @@
 			<Isolated>ىـ</Isolated>
 		</ContextualForms>
 		<RootId>34</RootId>
-		<FamilyId>1</FamilyId>
+		<FamilyId>17</FamilyId>
 	</Letter>
 
 <Letter>
@@ -560,7 +560,7 @@
 			<Isolated>ى</Isolated>
 		</ContextualForms>
 		<RootId>36</RootId>
-		<FamilyId>1</FamilyId>
+		<FamilyId>16</FamilyId>
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
 
