@@ -14,36 +14,47 @@ header('Content-Type: text/html; charset=utf-8');
 $puzzle = Puzzle::PuzzleWithFile('./b.txt');
 $puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 //$puzzle->difficulty = PuzzleDifficulty::FLASH;
-$puzzle->difficulty = PuzzleDifficulty::EASY;
+//$puzzle->difficulty = PuzzleDifficulty::EASY;
 ?>
 
 
+<div class="vertical_container">
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
 <?
 
-foreach ( $puzzle->words as $_wi => $_word ){
-		  echo "<div class='word' order='" . $_wi . "' >\n";
-        foreach ( $_word->letters as $_li => $_let){
-                $letter = $_word->getLetterAtIndex($_li);
-                if ( $puzzle->isLetterRandomizeable( $letter ) ){
-                        echo "<div class='container options_container not_correct' correctIndex='" . $letter->indexInFamily() . "'>\n";
-                        foreach ($letter->getFamily() as $_fLetter ) {
-                                $correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
-                                echo "<div class='option' p='$letter->position' isCorrect='" . $correct . "'>" .
-                                        $_fLetter->stringPresentation()
-                                        . "</div>";
-                        }
-                        echo "</div>\n";
-                } else {
-                        echo "<div class='container'>\n";
-                        echo "\t<div class='nooption' p='$letter->position'>" . $letter->stringPresentation() . "</div>\n";
-                        echo "</div>\n";
-                }
-        }
-		  echo '</div>'; //word;
+foreach ( $puzzle->all as $_wi => $_word ){
+		  if ( get_class( $_word ) == "LineBreak" ){
+						// if a line stop
+						echo "<br/>";
+		  } elseif ( get_class( $_word ) == "TabBreak"  ){ 
+						// if a line stop
+					 //echo '<div style="width:100px;"></div>';
+					 echo "<div class='break tabbreak' order=$_wi></div>\n";
+		  } else {
+					 echo "<div class='word' order='" . $_wi . "' >\n";
+					 foreach ( $_word->letters as $_li => $_let){
+								$letter = $_word->getLetterAtIndex($_li);
+								if ( $puzzle->isLetterRandomizeable( $letter ) ){
+										  echo "<div class='container options_container not_correct' correctIndex='" . $letter->indexInFamily() . "'>\n";
+										  foreach ($letter->getFamily() as $_fLetter ) {
+													 $correct = $_fLetter->matchesLetter($letter) ? 1 : 0;
+													 echo "<div class='option' p='$letter->position' isCorrect='" . $correct . "'>" .
+																$_fLetter->stringPresentation()
+																. "</div>";
+										  }
+										  echo "</div>\n";
+								} else {
+										  echo "<div class='container'>\n";
+										  echo "\t<div class='nooption' p='$letter->position'>" . $letter->stringPresentation() . "</div>\n";
+										  echo "</div>\n";
+								}
+					 }
+					 echo '</div>'; //word;
+		  }
 }
 ?>
-</div>
+</div> <!-- arabic_letter -->
+</div> <!-- vertical_container -->
 
 
 
@@ -53,16 +64,33 @@ foreach ( $puzzle->words as $_wi => $_word ){
 	padding: 0px;
 	margin: 0px;
 }
+
 .arabic_letter {
 	display: inline-block;
 	direction: "rtl";
 }
 
+div.vertical_container {
+	width: 90%;
+	text-align: center ; 
+	margin-left: auto ;
+  	margin-right: auto ;
+}
+
 div.word {
 	display: inline-block;
 	border:1px solid black;
-margin-left: 2px;
+   margin-right: 2px;
 }
+
+div.break{
+} 
+
+div.tabbreak{
+   margin-right: 20px;
+	display: inline-block;
+}
+
 div.container {
 	width:30px;
 	height:30px;
