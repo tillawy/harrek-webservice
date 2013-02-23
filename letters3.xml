@@ -564,4 +564,20 @@
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
 
+	<Letter>
+		<Id>38</Id>
+		<Name>Korsi</Name>
+		<Translit></Translit>
+		<Value></Value>
+		<ContextualForms>
+			<Last>ـئ</Last>
+			<Medial>ئ</Medial>
+			<Initial>ئـ</Initial>
+			<Isolated>ئ</Isolated>
+		</ContextualForms>
+		<RootId>36</RootId>
+		<FamilyId>16</FamilyId>
+	</Letter>
+
+
 </Letters>
