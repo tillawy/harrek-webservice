@@ -71,11 +71,11 @@ class Puzzle {
 	private function minimumCorrectContinousLetters(){
 		switch ($this->difficulty) {
 			case PuzzleDifficulty::FLASH :{
-				return 10;
+				return 8;
 				break;
 			}
 			case PuzzleDifficulty::EASY :{
-				return 8;
+				return 7;
 				break;
 			}
 			case PuzzleDifficulty::MEDIUM :{
@@ -83,11 +83,11 @@ class Puzzle {
 				break;
 			}
 			case PuzzleDifficulty::HARD :{
-				return 4;
+				return 5;
 				break;
 			}	
 			case PuzzleDifficulty::ADVANCED :{
-				return 2;
+				return 4;
 				break;
 			}
 		}
