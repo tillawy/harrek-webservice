@@ -1,7 +1,7 @@
 <?php
 
-require_once('./require.php');
-require_once('./nocache.php'); 
+require_once('require.php');
+require_once('nocache.php'); 
 
 header('Content-Type: application/json; charset=utf-8');
 
