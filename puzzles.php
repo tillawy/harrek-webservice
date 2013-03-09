@@ -6,7 +6,8 @@ require_once('nocache.php');
 header('Content-Type: application/json; charset=utf-8');
 
 
-$dir    = '/Users/mohammed/Sites/letters/Puzzles/';
+$dir    = 'Puzzles/';
+
 
 $files1 = scandir($dir);
 $exclude_list = array(".", "..", "example.txt");
