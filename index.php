@@ -1,6 +1,6 @@
 <html>
  	<head>
-        <script src="http://api.harrek.com/v1/js/jquery-1.8.2.min.js"></script>
+        <script src="js/jquery-1.8.2.min.js"></script>
 		  <meta http-equiv="PRAGMA" content="NO-CACHE">
         <meta HTTP-EQUIV="Expires" CONTENT="-1">
 		  <?  require_once('nocache.php'); ?>
