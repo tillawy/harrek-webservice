@@ -2,7 +2,7 @@
 rm -f ./Puzzles/*
 mkdir  ./Puzzles
 i=0;
-ls -flrt -d1  ./PuzzlesClassified/intro/* ./PuzzlesClassified/easy/* ./PuzzlesClassified/medium/* ./PuzzlesClassified/hard/* | while read file; do
+ls -frt -d1  ./PuzzlesClassified/intro/* ./PuzzlesClassified/easy/* ./PuzzlesClassified/medium/* ./PuzzlesClassified/hard/* | while read file; do
 
 		  oldFileName=${file};
 		  newFileName=$(printf "%03d" ${i}).txt;
