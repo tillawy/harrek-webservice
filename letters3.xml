@@ -559,7 +559,7 @@
 			<Initial></Initial>
 			<Isolated>ى</Isolated>
 		</ContextualForms>
-		<RootId>36</RootId>
+		<RootId>37</RootId>
 		<FamilyId>16</FamilyId>
 		<NextShouldBeInitial>1</NextShouldBeInitial>
 	</Letter>
@@ -575,9 +575,23 @@
 			<Initial>ئـ</Initial>
 			<Isolated>ئ</Isolated>
 		</ContextualForms>
-		<RootId>36</RootId>
+		<RootId>38</RootId>
 		<FamilyId>16</FamilyId>
 	</Letter>
 
+	<Letter>
+		<Id>39</Id>
+		<Name>Waw Mahmooza</Name>
+		<Translit></Translit>
+		<Value></Value>
+		<ContextualForms>
+			<Last>ـؤ</Last>
+			<Medial>ؤ</Medial>
+			<Initial>ؤـ</Initial>
+			<Isolated>ؤ</Isolated>
+		</ContextualForms>
+		<RootId>36</RootId>
+		<FamilyId>17</FamilyId>
+	</Letter>
 
 </Letters>
