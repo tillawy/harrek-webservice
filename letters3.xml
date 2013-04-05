@@ -566,7 +566,7 @@
 
 	<Letter>
 		<Id>38</Id>
-		<Name>Korsi</Name>
+		<Name>Hamza ala korsi</Name>
 		<Translit></Translit>
 		<Value></Value>
 		<ContextualForms>
@@ -576,7 +576,7 @@
 			<Isolated>ئ</Isolated>
 		</ContextualForms>
 		<RootId>38</RootId>
-		<FamilyId>16</FamilyId>
+		<FamilyId>19</FamilyId>
 	</Letter>
 
 	<Letter>
@@ -591,7 +591,7 @@
 			<Isolated>ؤ</Isolated>
 		</ContextualForms>
 		<RootId>36</RootId>
-		<FamilyId>17</FamilyId>
+		<FamilyId>18</FamilyId>
 	</Letter>
 
 </Letters>
