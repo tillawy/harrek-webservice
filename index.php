@@ -7,8 +7,8 @@
  	</head>
  	<body>
 
-<?
-require_once('./require.php'); 
+<?php
+require_once('./require.php');
 header('Content-Type: text/html; charset=utf-8');
 
 $puzzle = Puzzle::PuzzleWithFile('./Puzzles/' . $_REQUEST['puzzle_id'] . '.txt');
@@ -36,7 +36,7 @@ if (array_key_exists("h",$_REQUEST)){
 
 
 <div classs="arabic_letter" direction="rtl" dir="rtl" align="right">
-<?
+<?php
 
 foreach ( $puzzle->words as $_wi => $_word ){
 		  echo "<div class='word' order='" . $_wi . "' >\n";
@@ -122,7 +122,7 @@ $(".option").click(function() {
 
 
 $(".options_container").click(function() {
-	
+
 	if ($(this).scrollTop() + $(this).height() == $(this).prop("scrollHeight")) {
 		$(this).scrollTop( 0 );
 	} else {
@@ -154,7 +154,7 @@ $(".options_container").click(function() {
 });
 
 
-	
+
 
 </script>
 

@@ -1,4 +1,4 @@
-<?
+<?php
 header("Pragma-directive: no-cache");
 header("Cache-directive: no-cache");
 header("Cache-control: no-cache");
