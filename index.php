@@ -1,17 +1,23 @@
+<?php
+require_once('./require.php');
+require_once('nocache.php');
+header('Content-Type: text/html; charset=utf-8');
+?>
+
 <html>
  	<head>
         <script src="js/jquery-1.8.2.min.js"></script>
-		  <meta http-equiv="PRAGMA" content="NO-CACHE">
+        <meta http-equiv="PRAGMA" content="NO-CACHE">
         <meta HTTP-EQUIV="Expires" CONTENT="-1">
-		  <?  require_once('nocache.php'); ?>
  	</head>
  	<body>
 
-<?php
-require_once('./require.php');
-header('Content-Type: text/html; charset=utf-8');
 
-$puzzle = Puzzle::PuzzleWithFile('./Puzzles/' . $_REQUEST['puzzle_id'] . '.txt');
+
+<?php
+
+$puzzle_id = isset($_REQUEST['puzzle_id']) ?  $_REQUEST['puzzle_id'] :  "tutorial0";
+$puzzle = Puzzle::PuzzleWithFile('./Puzzles/' . $puzzle_id . '.txt');
 
 if (array_key_exists("h",$_REQUEST)){
 		  switch ($_REQUEST['h']){

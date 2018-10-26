@@ -1,0 +1,14 @@
+{
+    "name": "tillawy/harrek-webservice",
+    "version": "0.1.1",
+    "description": "Harrek game backend webservice",
+    "type": "project",
+    "license": "Personal",
+    "authors": [
+        {
+            "name": "Mohammed O. Tillawy",
+            "email": "tillawy@gmail.com"
+        }
+    ],
+    "require": {}
+}

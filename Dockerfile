@@ -1,1 +1,5 @@
-FROM tutum/apache-php
+FROM php:7.2-apache
+
+ADD . /var/www/html/
+
+
