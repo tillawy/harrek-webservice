@@ -1,10 +1,10 @@
 <?php
 
-require_once( "require.php" ) ; 
+require_once( "require.php" ) ;
 
-require_once "PHPUnit/Autoload.php";
+use PHPUnit\Framework\TestCase;
 
-class PuzzleTest extends PHPUnit_Framework_TestCase
+class PuzzleTest extends TestCase
 {
 
 		  private $str;
@@ -37,10 +37,10 @@ class PuzzleTest extends PHPUnit_Framework_TestCase
 					 //$anStr = "ابجد ههههوز حطي كمان سعفص";
 					 //$anStr = "ابجد هوز حطي كمان سعفص";
 					 //$somePuzzle = Puzzle::PuzzleWithStr( $anStr );
-					 $this->puzzle->difficulty = PuzzleDifficulty::HARD;
+					 $this->puzzle->difficulty = PuzzleDifficulty::ADVANCED;
 
 					 $l0 = $this->puzzle->letters[0]; // a
-					 $this->assertTrue( $this->puzzle->isLetterRandomizeable( $l0 ), "randomizeable 0");
+					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l0 ), "randomizeable 0");
 					 
 					 $l1 = $this->puzzle->letters[1]; // b
 					 $this->assertFalse( $this->puzzle->isLetterRandomizeable( $l1 ), "randomizeable 1");

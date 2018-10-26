@@ -1,16 +1,16 @@
-
 <?php
 
-require_once( "require.php" ) ; 
+require_once( "require.php" ) ;
 
-require_once "PHPUnit/Autoload.php";
+use PHPUnit\Framework\TestCase;
 
-class VocabularyLetterTest extends PHPUnit_Framework_TestCase
+class VocabularyLetterTest extends TestCase
 {
 
-		 private $xml;
-		 private $vocabulary;
+//		 private $xml;
+//		 private $vocabulary;
 		 protected function setUp(){
+
 					$this->xml = "<Letters>
 							  <Letter>
 										 <Id>0</Id>
@@ -42,14 +42,15 @@ class VocabularyLetterTest extends PHPUnit_Framework_TestCase
 										 <FamilyId>1</FamilyId>
 							  </Letter>
 					</Letters>";
-					$this->vocabulary = new Vocabulary();
-					$this->vocabulary->parseXmlString( $this->xml );
+                    Letter::reset();
+					$this->vocabulary1 = new Vocabulary();
+					$this->vocabulary1->parseXmlString( $this->xml );
 	    }
 
 
 
 		 public function testLetter() {
-			$letter = $this->vocabulary->languageLetters[1];
+			$letter = $this->vocabulary1->languageLetters[1];
 
 			$this->assertNotNull( $letter);
 			$this->assertEquals( $letter->Id , 31);
@@ -75,13 +76,17 @@ class VocabularyLetterTest extends PHPUnit_Framework_TestCase
 			$this->assertNotNull( $letter->familyId );
 			$this->assertEquals( $letter->familyId  , 1);
 
-			$this->assertNotNull(  Letter::$families  );
+			$this->assertNotEmpty(  Letter::$families  );
 			$this->assertArrayHasKey(  "f:" . $letter->familyId  ,   Letter::$families );
-			$this->assertNotNull ( Letter::$families["f:" . $letter->familyId] );
+			$this->assertNotEmpty ( Letter::$families["f:" . $letter->familyId] );
+            print_r("letter:");
+            print_r($letter);
+            print("letter->familyId:");
+            print($letter->familyId);
+            print_r(Letter::$families["f:" . $letter->familyId]);
+			$this->assertTrue( in_array( $letter , Letter::$families["f:" . $letter->familyId]  , true));
 
-			$this->assertTrue ( in_array( $letter , Letter::$families["f:" . $letter->familyId]  , true));
-
-			$this->assertEquals ( $letter->family() , Letter::$families["f:" . $letter->familyId]  ) ;
+			$this->assertEquals ( $letter->getFamily() , Letter::$families["f:" . $letter->familyId]  ) ;
 
 
 			/*print( $s->ContextualForms->Isolated . "\t" .  $s->ContextualForms->Final . "\t" . $s->ContextualForms->Medial . "\t" . $s->ContextualForms->Initial . "\n");*/

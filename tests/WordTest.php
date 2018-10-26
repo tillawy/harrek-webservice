@@ -1,10 +1,10 @@
 <?php
 
-require_once( "require.php" ) ; 
+require_once( "require.php" ) ;
 
-require_once "PHPUnit/Autoload.php";
+use PHPUnit\Framework\TestCase;
 
-class WordTest extends PHPUnit_Framework_TestCase
+class WordTest extends TestCase
 {
 
 
@@ -31,6 +31,15 @@ class WordTest extends PHPUnit_Framework_TestCase
 					 $t = "محمد";
 					 $letters =  WordsFactory::mb_str_split ( $t );
 					 $word = new Word( $letters );
+					 $vocabulary = new Vocabulary("letters3.xml");
+//					 $vocabulary->parseLetters($_str);
+//					 $vocabulary = new Vocabulary();
+					 $word->addLetter($vocabulary->getLetterFor($letters[0]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[1]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[2]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[3]));
+
+
 					 $this->assertEquals( $word->getLetterAtIndex(0)->position , LetterPosition::INITIAL  , "position should be INITIAL" );
 					 $this->assertEquals( $word->getLetterAtIndex(1)->position , LetterPosition::MEDIAL  , "position should be MEDIAL" );
 					 $this->assertEquals( $word->getLetterAtIndex( sizeof( $letters  ) - 1 )->position , LetterPosition::LAST  , "position should be LAST" );
@@ -41,6 +50,15 @@ class WordTest extends PHPUnit_Framework_TestCase
 					 $t = "غادرششض";
 					 $letters =  WordsFactory::mb_str_split ( $t );
 					 $word = new Word( $letters );
+
+              		 $vocabulary = new Vocabulary("letters3.xml");
+					 $word->addLetter($vocabulary->getLetterFor($letters[0]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[1]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[2]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[3]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[4]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[5]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[6]));
 
 					 $this->assertFalse( $word->getLetterAtIndex( 0 )->nextShouldBeInitial , "next should be initial" );
 					 $this->assertTrue( $word->getLetterAtIndex( 1 )->nextShouldBeInitial , "next should be initial" );
@@ -61,6 +79,13 @@ class WordTest extends PHPUnit_Framework_TestCase
 					 $t = "متردم";
 					 $letters =  WordsFactory::mb_str_split ( $t );
 					 $word = new Word( $letters );
+
+					 $vocabulary = new Vocabulary("letters3.xml");
+					 $word->addLetter($vocabulary->getLetterFor($letters[0]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[1]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[2]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[3]));
+					 $word->addLetter($vocabulary->getLetterFor($letters[4]));
 
 					 $this->assertFalse( $word->getLetterAtIndex( 0 )->nextShouldBeInitial , "next should be initial" );
 					 $this->assertFalse( $word->getLetterAtIndex( 1 )->nextShouldBeInitial , "next should be initial" );

@@ -71,6 +71,10 @@ class Letter extends JSONObject{
 	
 	}
 
+	public static function reset(){
+        Letter::$familiesTrack = [];
+        Letter::$families = [];
+	}
 
 	private function getTextContent(SimpleXMLElement $_sxml){
 			  return dom_import_simplexml($_sxml)->textContent;

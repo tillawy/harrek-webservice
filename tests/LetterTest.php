@@ -2,15 +2,13 @@
 
 require_once( "require.php" ) ; 
 
-require_once "PHPUnit/Autoload.php";
+use PHPUnit\Framework\TestCase;
 
-class LetterTest extends PHPUnit_Framework_TestCase
+class LetterTest extends TestCase
 {
 
-		
 		  public function testDelme(){
+		      $this->assertSame(true ,true,  "testing ");
 		  }
-
-
 
 }

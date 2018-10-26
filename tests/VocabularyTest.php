@@ -1,10 +1,10 @@
 <?php
 
-require_once( "require.php" ) ; 
+require_once( "require.php" ) ;
 
-require_once "PHPUnit/Autoload.php";
+use PHPUnit\Framework\TestCase;
 
-class VocabularyTest extends PHPUnit_Framework_TestCase
+class VocabularyTest extends TestCase
 {
 
 		 private $xml;

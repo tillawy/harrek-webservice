@@ -1,10 +1,10 @@
 <?php
 
-require_once( "require.php" ) ; 
+require_once( "require.php" ) ;
 
-require_once "PHPUnit/Autoload.php";
+use PHPUnit\Framework\TestCase;
 
-class PuzzleParsingTest extends PHPUnit_Framework_TestCase
+class PuzzleParsingTest extends TestCase
 {
 
 		  protected $str;
