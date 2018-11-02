@@ -6,12 +6,14 @@ readonly deployment_name="harrek-webservice"
 
 readonly service_name="harrek-webservice-service";
 
-kubectl delete services ${service_name};
+readonly namespace_name="harrek";
 
-kubectl delete deployments ${deployment_name}
+kubectl delete namespaces ${namespace_name}
 
-kubectl run ${deployment_name} --image=harrek/webservice:latest --image-pull-policy=Never --port=80
+kubectl apply -f docker/k8s.yaml
 
-kubectl expose deployment ${deployment_name} --type=LoadBalancer --name=${service_name}
+kubectl run ${deployment_name} --image=harrek/webservice:latest --image-pull-policy=Never --namespace=${namespace_name} --port=80
 
-minikube service ${service_name};
+kubectl expose deployment ${deployment_name} --type=LoadBalancer --namespace=${namespace_name} --name=${service_name}
+
+minikube service ${service_name} --namespace=${namespace_name};
